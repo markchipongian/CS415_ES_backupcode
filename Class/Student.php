@@ -64,9 +64,94 @@
 
         }
 
+        public function student_course($student_id)
+        {
+            try
+			{
+				//Create instance of Database Connection
+				$conn = new DBConn();
+                $conn = $conn->connect();
+                
+                $stmt = $conn->prepare("SELECT * FROM STUDENT_PROG WHERE STUDENT_ID = (:student_id);");
+                $stmt->bindParam(':student_id', $student_id);
+                $stmt->execute();
+                $result = $stmt->fetchAll();
+                return $result;
+            }
+            catch(PDOException $e)
+			{
+				echo "Error: " . $e->getMessage();
+			}
+        }
+
+        public function student_course_completed($student_id)
+        {
+            try
+			{
+				//Create instance of Database Connection
+				$conn = new DBConn();
+                $conn = $conn->connect();
+                
+                $stmt = $conn->prepare("SELECT COURSE_CODE FROM COMP_COURSE WHERE STUDENT_ID = (:student_id);");
+                $stmt->bindParam(':student_id', $student_id);
+                $stmt->execute();
+                $result = $stmt->fetchAll();
+                return $result;
+            }
+            catch(PDOException $e)
+			{
+				echo "Error: " . $e->getMessage();
+			}
+        }
+
+        public function student_course_registered($student_id)
+        {
+            try
+			{
+				//Create instance of Database Connection
+				$conn = new DBConn();
+                $conn = $conn->connect();
+                
+                $stmt = $conn->prepare("SELECT * FROM REGISTRATIONS WHERE STUDENT_ID = (:student_id);");
+                $stmt->bindParam(':student_id', $student_id);
+                $stmt->execute();
+                $result = $stmt->fetchAll();
+                return $result;
+            }
+            catch(PDOException $e)
+			{
+				echo "Error: " . $e->getMessage();
+			}
+        }
+
+        public function student_course_not_completed($student_id)
+        {
+            $result_prog = $this->student_course($student_id);
+            $result_comp = $this->student_course_completed($student_id);
+            $rsult_register = $this->student_course_registered($student_id);
+            $array[50];
+            $size = 0;
+        }
+
+
+
         public function student_grades($student_id)
         {
-
+            try
+			{
+				//Create instance of Database Connection
+				$conn = new DBConn();
+                $conn = $conn->connect();
+                $stmt = $conn->prepare("SELECT * FROM COMP_COURSE WHERE STUDENT_ID = (:student_id);");
+                $stmt->bindParam(':student_id', $student_id);
+                $stmt->execute();
+                $result = $stmt->fetchAll();
+                return $result;
+            }
+            catch(PDOException $e)
+			{
+				echo "Error: " . $e->getMessage();
+			}
         }
     }
 

@@ -1,3 +1,7 @@
+<?php
+// Start the session
+session_start();
+?>
 <!DOCTYPE html>
 <html>
 
@@ -52,7 +56,15 @@
             </ul>
         </div>
     </nav>
+    
+    <div class="Container">
+
+        <div class="page-title">
+            <h1>Welcome To Your Dashboard</h1>
+            <p>This is your homepage and the root of the entire website, you can navigate to other pages from here.</p>
+        </div>
+
+    </div>
 
 </body>
-
 </html>

@@ -1,3 +1,8 @@
+<?php
+// Start the session
+session_start();
+?>
+<?php require_once("../Class/Student.php"); ?>
 <!DOCTYPE html>
 <html>
 
@@ -53,6 +58,43 @@
         </div>
     </nav>
 
-</body>
+    <div class="Container">
+        <div class="page-title">
+            <h1>Acedemic History</h1>
+            <p>
+                In this page you will view your acedemic grades for units that you have completed.
+            </p>
+        </div>
+        <div class="grades">
+            <table class="table table-striped">
+                <div class="table responsive">
+                    <thead>
+                        <tr>
+                            <th>Course Code</th>
+                            <th>Grade</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                            $student_id = $_SESSION["id"];
+                            $student = new Student();
+                            $result = $student->student_grades($student_id);
+                            foreach($result as $row){
+                                echo "<tr>
+                                          <td> ". $row["COURSE_CODE"] ."</td>
+                                           <td> ". $row["GRADE"] ."</td>
+                                          <td>";
+                                echo	'</td>
+                                    </tr>';
+                            }
+                        ?>
+                    </tbody>
+                </div>    
+            </table>
+        </div>
+    
+    </div>
 
+
+</body>
 </html>

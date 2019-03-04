@@ -53,6 +53,14 @@
         </div>
     </nav>
 
-</body>
+    <div class="Container">
 
+        <div class="page-title">
+            <h1>Financial Menu</h1>
+            <p>Your invoice for the current semester will be displayed below.</p>
+        </div>
+
+    </div>
+
+</body>
 </html>

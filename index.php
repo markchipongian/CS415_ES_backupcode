@@ -27,7 +27,7 @@
             Enrollment System Login
         </div>
         <div class="Login">
-            <form action="login.php" method="POST">
+            <form action="API/login.php" method="POST">
                 <div class="rounded">
                     <label id="label" for="username"><b>Username:</b></label>
                     <input type="text" placeholder="Enter Username" name="username" required class="form-control">

@@ -53,6 +53,14 @@
         </div>
     </nav>
 
-</body>
+    <div class="Container">
 
+        <div class="page-title">
+            <h1>Registrations</h1>
+            <p>From here you can manage you registrations as well as view them.</p>
+        </div>
+
+    </div>
+
+</body>
 </html>

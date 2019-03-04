@@ -1,6 +1,9 @@
 <?php require_once("../Class/Student.php"); ?>
 <?php require_once("../Class/Staff.php"); ?>
-
+<?php
+// Start the session
+session_start();
+?>
 <?php
     // if (isset($_SERVER['HTTP_ORIGIN'])) {
     //     header("Access-Control-Allow-Origin: *");
@@ -43,8 +46,9 @@
 
             if($result)
             {
-               header("location: ../Dashboard_Student/dashboard.html");
-            }S
+                echo $_SESSION["id"] = $id;
+               header("location: ../Dashboard_Student/dashboard.php");
+            }
             else
             {
                 header("location: ../index.php");
@@ -58,11 +62,13 @@
 
             if($result == "Manager")
             {
-                header("location: ../Dashboard_Student/dashboard.html");
+                $_SESSION["id"] = $id;
+                header("location: ../Dashboard_Student/dashboard.php");
             }
             elseif($result == "Academic")
             {
-                header("location: ../Dashboard_Student/dashboard.html");
+                $_SESSION["id"] = $id;
+                header("location: ../Dashboard_Student/dashboard.php");
             }
             else
             {

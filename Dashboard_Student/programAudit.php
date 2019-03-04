@@ -53,6 +53,15 @@
         </div>
     </nav>
 
-</body>
+    <div class="Container">
 
+        <div class="page-title">
+            <h1>My Porgram Audit</h1>
+            <p>Details about your current Program as well as courses and their information will be displayed here.</p>
+        </div>
+
+    </div>
+
+
+</body>
 </html>
