@@ -106,7 +106,7 @@ session_start();
 
         <div class="courses-title">
             <h1>Courses Completed</h1>
-            <p>This table  shows the courses that you have completed so</p>
+            <p>This table  shows the courses that you have completed</p>
         </div>
 
         <div class="courses-table">
@@ -124,8 +124,7 @@ session_start();
                                 echo "<tr>
                                           <td> ". $row["COURSE_CODE"] ."</td>
                                           <td>";
-                                echo	'</td>
-                                    </tr>';
+                                echo	'</td> </tr>';
                             }
 
                         ?>
@@ -202,6 +201,52 @@ session_start();
                                 echo	'</td>
                                     </tr>';
                             }
+                           
+                        ?>
+                    </tbody>
+            </table>
+        </div>
+
+        <div class="courses-title">
+            <h1>Prerequisites</h1>
+            <p>This table  shows the courses and thier prerequisites</p>
+        </div>
+
+        <div class="courses-table">
+            <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Course Codes</th>
+                            <th>Prerequisite</th>
+                            <th>Prerequisite Alternate</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                            foreach($array2 as $items)
+                            {
+                                $course_code = $items;
+                                echo "<tr>
+                                     <td> ". $course_code."</td>";
+
+                                $result = $student->student_prereqs($course_code);
+                                if(empty($result)){
+                                    echo "<td> ". "No Prerequisite"."</td>";
+                                    echo "<td> ". "No Prerequisite"."</td>";
+                                }else{
+                                    foreach ( $result as $var ) {
+                                        if(empty($var['COURSE_CODE_ALT'])){
+                                            echo "<td> ". $var['COURSE_CODE_COMP']."</td>";
+                                            echo "<td> ". "No Prerequisite"."</td>";
+                                        }else{
+                                            echo "<td> ". $var['COURSE_CODE_COMP']."</td>";
+                                            echo "<td> ". $var['COURSE_CODE_ALT']."</td>";
+                                        }
+                                    }
+                                }
+                                echo	'</tr>';
+                            }  
+                            
                            
                         ?>
                     </tbody>

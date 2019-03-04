@@ -385,6 +385,28 @@
 				echo "Error: " . $e->getMessage();
 			}
         }
+
+        public function student_prereqs($course_code)
+        {
+            try
+			{
+				//Create instance of Database Connection
+				$conn = new DBConn();
+                $conn = $conn->connect();
+                
+                $stmt = $conn->prepare("SELECT * FROM prerequisities WHERE COURSE_CODE = (:course_code);");
+                $stmt->bindParam(':course_code', $course_code);
+                if($stmt->execute())
+				{
+                    $result = $stmt->fetchAll();
+                    return $result;
+                }
+            }
+            catch(PDOException $e)
+			{
+				echo "Error: " . $e->getMessage();
+			}
+        }
     }
 
 

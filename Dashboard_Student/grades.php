@@ -82,10 +82,8 @@ session_start();
                             foreach($result as $row){
                                 echo "<tr>
                                           <td> ". $row["COURSE_CODE"] ."</td>
-                                           <td> ". $row["GRADE"] ."</td>
-                                          <td>";
-                                echo	'</td>
-                                    </tr>';
+                                           <td> ". $row["GRADE"] ."</td>";
+                                echo	'</tr>';
                             }
                         ?>
                     </tbody>
