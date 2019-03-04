@@ -1,3 +1,16 @@
+<?php require_once("../Class/Student.php"); ?>
+<?php
+// Start the session
+session_start();
+?>
+
+<?php
+    $student = new Student();
+    $student_id = $_SESSION["id"];
+    $student_course_completed = Count($student->student_course_completed($student_id));
+    $student_course_registered = Count($student->student_course_registered($student_id));
+    $student_course_to_complete = $student->student_course_to_complete($student_id);
+?>
 <!DOCTYPE html>
 <html>
 
@@ -16,6 +29,30 @@
 
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+        google.charts.load('current', {'packages':['corechart']});
+        google.charts.setOnLoadCallback(drawChart);
+
+        google.charts.setOnLoadCallback(drawChart);  
+        function drawChart() {
+            var data = google.visualization.arrayToDataTable([
+            ['Courses Completed', 'Total Courses'],
+            ['Courses Completed',     <?php echo $student_course_completed ?>],
+            ['Courses Left',      <?php echo $student_course_to_complete?>],
+            ['Courses Registered',      <?php echo $student_course_registered?>],
+            ]);
+
+            var options = {
+            title: 'Percentage of Programme Completion'
+            };
+
+            var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+            chart.draw(data, options);
+            }
+    </script>
 </head>
 
 <body>
@@ -53,6 +90,7 @@
         </div>
     </nav>
 
+    
     <div class="Container">
 
         <div class="page-title">
@@ -60,8 +98,10 @@
             <p>Details about your current Program as well as courses and their information will be displayed here.</p>
         </div>
 
-    </div>
+        <div class="pie-chart" id="piechart">
+        </div>
 
+    </div>
 
 </body>
 </html>
