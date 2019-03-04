@@ -122,7 +122,7 @@ session_start();
                             foreach($courses_compl as $row){
 
                                 echo "<tr>
-                                          <td> ". $row["COURSE_CODE"] ."</td>
+                                          <td> <div style ='font-weight: bold;'>". $row["COURSE_CODE"] ."</div></td>
                                           <td>";
                                 echo	'</td> </tr>';
                             }
@@ -150,12 +150,12 @@ session_start();
                             foreach($courses_reg as $row){
 
                                 echo "<tr>
-                                          <td> ". $row["COURSE_CODE"] ."</td>
+                                          <td> <div style ='font-weight: bold;'>". $row["COURSE_CODE"] ."</div></td>
                                           <td>";
                                 echo	'</td>
                                     </tr>';
                             }if(empty($courses_reg)){
-                                echo "<tr><td>You Have Not Registered For Any Course</td></tr>";
+                                echo "<tr><td><div style ='font-weight: bold; color: red;'>You Have Not Registered For Any Course</div></td></tr>";
                             }
 
                         ?>
@@ -196,7 +196,7 @@ session_start();
                             foreach($courses_left as $row){
 
                                 echo "<tr>
-                                          <td> ". $row."</td>
+                                          <td> <div style ='font-weight: bold;'>". $row."</div></td>
                                           <td>";
                                 echo	'</td>
                                     </tr>';
@@ -227,20 +227,20 @@ session_start();
                             {
                                 $course_code = $items;
                                 echo "<tr>
-                                     <td> ". $course_code."</td>";
+                                     <td><div style ='font-weight: bold;'>". $course_code."</div></td>";
 
                                 $result = $student->student_prereqs($course_code);
                                 if(empty($result)){
-                                    echo "<td> ". "No Prerequisite"."</td>";
-                                    echo "<td> ". "No Prerequisite"."</td>";
+                                    echo "<td> ". "<div style ='color:#FF8000'>No Prerequisite</div>"."</td>";
+                                    echo "<td> ". "<div style ='color:#FF8000'>No Prerequisite</div>"."</td>";
                                 }else{
                                     foreach ( $result as $var ) {
                                         if(empty($var['COURSE_CODE_ALT'])){
-                                            echo "<td> ". $var['COURSE_CODE_COMP']."</td>";
-                                            echo "<td> ". "No Prerequisite"."</td>";
+                                            echo "<td> <div style ='color: #FF0000; font-weight: bold;'>". $var['COURSE_CODE_COMP']."</div></td>";
+                                            echo "<td> ". "<div style ='color:#FF8000'>No Prerequisite</div>"."</td>";
                                         }else{
-                                            echo "<td> ". $var['COURSE_CODE_COMP']."</td>";
-                                            echo "<td> ". $var['COURSE_CODE_ALT']."</td>";
+                                            echo "<td> <div style ='color: #FF0000; font-weight: bold;'>". $var['COURSE_CODE_COMP']."</div></td>";
+                                            echo "<td> <div style ='color: #FF0000; font-weight: bold;'>". $var['COURSE_CODE_ALT']."</div></td>";
                                         }
                                     }
                                 }
