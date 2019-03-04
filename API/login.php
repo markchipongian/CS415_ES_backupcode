@@ -63,12 +63,12 @@ session_start();
             if($result == "Manager")
             {
                 $_SESSION["id"] = $id;
-                header("location: ../Dashboard_Student/dashboard.php");
+                header("location: ../Dashboard_Manager/dashboard.php");
             }
             elseif($result == "Academic")
             {
                 $_SESSION["id"] = $id;
-                header("location: ../Dashboard_Student/dashboard.php");
+                header("location: ../Dashboard_Acedemic/dashboard.php");
             }
             else
             {

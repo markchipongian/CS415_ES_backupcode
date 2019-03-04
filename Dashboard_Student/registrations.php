@@ -22,9 +22,9 @@
     <div class="header">
         <img src="../images/usp_logo.jpg" class="logo">
         <div class="title">
-            <h1>
+            <h2>
                 Excellence in Uniquely Pacific <br>Learning and Innovation
-            </h1>
+            </h2>
         </div>
     </div>
 

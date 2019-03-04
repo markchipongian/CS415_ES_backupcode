@@ -9,7 +9,9 @@ session_start();
     $student_id = $_SESSION["id"];
     $student_course_completed = Count($student->student_course_completed($student_id));
     $student_course_registered = Count($student->student_course_registered($student_id));
-    $student_course_to_complete = $student->student_course_to_complete($student_id);
+    $student_course_to_complete = Count($student->student_course_to_complete($student_id));
+
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -59,9 +61,9 @@ session_start();
     <div class="header">
         <img src="../images/usp_logo.jpg" class="logo">
         <div class="title">
-            <h1>
+            <h2>
                 Excellence in Uniquely Pacific <br>Learning and Innovation
-            </h1>
+            </h2>
         </div>
     </div>
 
@@ -98,10 +100,114 @@ session_start();
             <p>Details about your current Program as well as courses and their information will be displayed here.</p>
         </div>
 
-        <div class="pie-chart" id="piechart">
+        <div class="pie-chart">
+            <div id="piechart" style="width: 100%; height: 100%;"></div>
+        </div>
+
+        <div class="courses-title">
+            <h1>Courses Completed</h1>
+            <p>This table  shows the courses that you have completed so</p>
+        </div>
+
+        <div class="courses-table">
+            <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Course Codes</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                             $courses_compl = $student->student_course_completed($student_id);
+                            foreach($courses_compl as $row){
+
+                                echo "<tr>
+                                          <td> ". $row["COURSE_CODE"] ."</td>
+                                          <td>";
+                                echo	'</td>
+                                    </tr>';
+                            }
+
+                        ?>
+                    </tbody>
+            </table>
+        </div>
+
+        <div class="courses-title">
+            <h1>Courses Registered</h1>
+            <p>This table  shows the courses that you have registered for</p>
+        </div>
+
+        <div class="courses-table">
+            <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Course Codes</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                            $courses_reg = $student->student_course_registered($student_id);
+                            foreach($courses_reg as $row){
+
+                                echo "<tr>
+                                          <td> ". $row["COURSE_CODE"] ."</td>
+                                          <td>";
+                                echo	'</td>
+                                    </tr>';
+                            }if(empty($courses_reg)){
+                                echo "<tr><td>You Have Not Registered For Any Course</td></tr>";
+                            }
+
+                        ?>
+                    </tbody>
+            </table>
+        </div>
+
+        <div class="courses-title">
+            <h1>Courses Left Be Completed</h1>
+            <p>This table  shows the courses that you have left</p>
+        </div>
+
+        <div class="courses-table">
+            <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Course Codes</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                            $array1 = array();
+                            $array2 = array();
+
+                            $courses_compl = $student->student_course_completed($student_id);
+                            $courses_to_compl = $student->student_course_to_complete($student_id);
+
+                            foreach($courses_compl as $row){
+                                $array1[] = $row["COURSE_CODE"];
+                            }
+
+                            foreach ( $courses_to_compl as $var ) {
+                                $array2[] = $var['value'];
+                            }
+
+                            $courses_left = array_diff($array2 , $array1);
+
+                            foreach($courses_left as $row){
+
+                                echo "<tr>
+                                          <td> ". $row."</td>
+                                          <td>";
+                                echo	'</td>
+                                    </tr>';
+                            }
+                           
+                        ?>
+                    </tbody>
+            </table>
         </div>
 
     </div>
-
 </body>
 </html>

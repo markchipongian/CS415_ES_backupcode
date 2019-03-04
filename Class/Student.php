@@ -298,8 +298,8 @@
                 if($stmt->execute())
 				{
                     $result = $stmt->fetchAll();
-                    $result_count = Count($result);
-                    return $result_count;
+                    // $result_count = Count($result);
+                    return $result;
                 }
             }
             catch(PDOException $e)
@@ -316,7 +316,7 @@
 				$conn = new DBConn();
                 $conn = $conn->connect();
                 
-                $stmt = $conn->prepare("SELECT COURSE_CODE FROM COMP_COURSE WHERE STUDENT_ID = (:student_id);");
+                $stmt = $conn->prepare("SELECT * FROM COMP_COURSE WHERE STUDENT_ID = (:student_id);");
                 $stmt->bindParam(':student_id', $student_id);
                 if($stmt->execute())
 				{

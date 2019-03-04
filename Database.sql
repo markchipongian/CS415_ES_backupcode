@@ -316,6 +316,48 @@ VALUES
         '2',
         '$50',
         ''
+    ),
+    (
+        'CS310',
+        'Computer Networks',
+        '1',
+        '$50',
+        ''
+    ),
+    (
+        'CS311',
+        'Operating Systems',
+        '1',
+        '$50',
+        ''
+    ),
+    (
+        'IS333',
+        'Project Management',
+        '1',
+        '$50',
+        ''
+    ),
+    (
+        'CS324',
+        'Distributed Computing',
+        '2',
+        '$50',
+        ''
+    ),
+    (
+        'CS341',
+        'Distributed Computing',
+        '2',
+        '$50',
+        ''
+    ),
+    (
+        'IS314',
+        'Computing Project',
+        '2',
+        '$50',
+        ''
     );
 
     INSERT INTO COMP_COURSE (
