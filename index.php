@@ -1,3 +1,5 @@
+<?php session_start(); 
+?>
 <!DOCTYPE html>
 <html>
 
@@ -17,7 +19,6 @@
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </head>
-
 <body>
     <div class="Container">
         <div class="Logo">
@@ -25,6 +26,15 @@
         </div>
         <div class="title">
             Enrollment System Login
+        </div>
+        <div class="warning-messg">
+            <?php
+                if(isset($_SESSION['alert'])){
+                    $message = $_SESSION['alert'];
+                    echo $message;
+                }
+                unset($_SESSION['alert']);
+            ?>
         </div>
         <div class="Login">
             <form action="API/login.php" method="POST">

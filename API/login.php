@@ -33,6 +33,8 @@ session_start();
 
     if(isset($_POST['submit']))
     {
+        $alertmsgg = "<div class='alert alert-danger'>Incorrect Username or Password</div>";
+
         $id = $_POST['username'];
         $password = $_POST['password'];
         echo $id;
@@ -51,6 +53,7 @@ session_start();
             }
             else
             {
+                $_SESSION['alert'] = $alertmsgg;
                 header("location: ../index.php");
             }
         }
@@ -72,12 +75,14 @@ session_start();
             }
             else
             {
+                $_SESSION['alert'] = $alertmsgg;
                 header("location: ../index.php");
             }
         }
         else
         {
-            echo "C";
+            $_SESSION['alert'] = $alertmsgg;
+            header("location: ../index.php");
         }
     }
 

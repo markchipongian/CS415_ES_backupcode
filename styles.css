@@ -97,13 +97,11 @@ body {
     font-size: 150%;
 }
 
-.rounded{
-  /* margin: 0 .25rem;
-  min-width: 125px;
-  border: 1px solid #eee;
-  border-radius: 5px;
-  transition: border-color .5s ease-out;
-  margin-bottom: 5%; */
+.warning-messg{
+    margin-top:5px;
+    margin-left:35.5vw;
+    width: 30%;
+    text-align:center;
 }
 
 .LoginButton{

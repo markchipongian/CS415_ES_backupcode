@@ -372,7 +372,7 @@
 				$conn = new DBConn();
                 $conn = $conn->connect();
                 
-                $stmt = $conn->prepare("SELECT * FROM COMP_COURSE WHERE STUDENT_ID = (:student_id);");
+                $stmt = $conn->prepare("SELECT * FROM COMP_COURSE WHERE STUDENT_ID = (:student_id) AND GRADE LIKE 'A%' OR GRADE LIKE 'B%' OR GRADE LIKE 'C%'OR GRADE LIKE 'R%' OR GRADE LIKE 'P%' OR GRADE LIKE 'M%' OR GRADE LIKE 'S%';");
                 $stmt->bindParam(':student_id', $student_id);
                 if($stmt->execute())
 				{
