@@ -10,7 +10,7 @@ $array_course_1 = array();
 $array_course_2 = array();
 $array_course_3 = array();
 $array_course_4 = array();
-$array_final = array();
+
 
 
 foreach($result as $row)
@@ -34,13 +34,48 @@ foreach($result as $row)
         $array_course_4[] = array($row["value"], $row["COURSE_CODE_COMP"], $row["COURSE_CODE_ALT"], $row["COURSE_CODE_ALTb"], $row["COURSE_CODE_ALTc"], $row["COURSE_CODE_COMP_2"], $row["COURSE_CODE_ALT_2"], $row["COURSE_CODE_ALT_2b"], $row["COURSE_CODE_ALT_2c"], $row["COURSE_CODE_COMP_3"], $row["COURSE_CODE_ALT_3"], $row["COURSE_CODE_COMP_4"], $row["COURSE_CODE_ALT_4"], $row["COURSE_CODE_COMP_5"], $row["COURSE_CODE_ALT_5"], $row["COURSE_CODE_COMP_6"], $row["COURSE_CODE_ALT_6"]);
     }
 }
+$arraysize1 = sizeof($array_course_1);
+$arraysize2 = sizeof($array_course_2);
+$arraysize3 = sizeof($array_course_3);
+$arraysize4 = sizeof($array_course_4);
 
+for($i = 0 ; $i < $arraysize1; $i++){
+    for($k = 0 ; $k < $arraysize1; $k++){
+        echo $array_course_1[$i][$k];
+        
+    }
+    echo "   ";
+}
+echo "<br>";
+echo "<br>";
+echo "<br>";
+for($i = 0 ; $i < $arraysize2; $i++){
+    for($k = 0 ; $k < $arraysize2; $k++){
+        echo $array_course_2[$i][$k];
+        
+    }
+    echo "   ";
+}
 
-print_r($array_course_1);
+echo "<br>";
+echo "<br>";
+echo "<br>";
+for($i = 0 ; $i < $arraysize3; $i++){
+    for($k = 0 ; $k < $arraysize3; $k++){
+        echo $array_course_3[$i][$k];
+        
+    }
+    echo "   ";
+}
 
-foreach($array_course_1 as $values){
-
-
-
-} 
+echo "<br>";
+echo "<br>";
+echo "<br>";
+for($i = 0 ; $i < $arraysize4; $i++){
+    for($k = 0 ; $k < $arraysize4; $k++){
+        echo $array_course_4[$i][$k];
+        
+    }
+    echo "   ";
+}
 ?>
