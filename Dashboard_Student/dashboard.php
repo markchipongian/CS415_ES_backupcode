@@ -1,6 +1,21 @@
+<?php require_once("../Class/Student.php"); ?>
 <?php
 // Start the session
 session_start();
+
+
+$student = new Student();
+$student_id = $_SESSION["id"];
+
+$details = $student->student_details($student_id);
+foreach($details as $row){
+    $fname = $row["First_Name"];
+    $lname = $row["Last_Name"];
+    $oname = $row["Other_Name"];
+    $email = $row["Email"];
+    $mobile = $row["Phone_Number"];
+}
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -52,7 +67,7 @@ session_start();
                 </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="logout.php"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+                <li><a href="../index.php"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
             </ul>
         </div>
     </nav>
@@ -64,7 +79,40 @@ session_start();
             <p>This is your homepage and the root of the entire website, you can navigate to other pages from here.</p>
         </div>
 
+        <div class="details">
+            <div class="picture">
+                <img src="../images/profile_pic.png" style="width: 100%; height: 100%;">
+            </div>
+            <div class="caption">
+                <p>
+                    First Name:<br />
+                    Last Name:<br />
+                    Other Name:<br />
+                    Student ID:<br />
+                    Email:<br />
+                    Mobile:<br />
+                </p>
+            </div>
+            <div class="caption_detials">
+                 <p>
+                    <?php echo $fname; ?><br />
+                    <?php echo $lname; ?><br />
+                    <?php 
+                        if(empty($oname)){
+                            echo "NULL";
+                        }else{
+                            echo $oname; 
+                        }
+                    ?><br />
+                    <?php echo $student_id; ?><br />
+                    <?php echo $email; ?><br />
+                    <?php echo $mobile; ?><br />
+                </p>
+            </div>
+        </div>
+        
     </div>
+
 
 </body>
 </html>

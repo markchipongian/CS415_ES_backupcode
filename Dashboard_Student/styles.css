@@ -48,7 +48,7 @@ h2 {
 }
 
 body {
-    font-size: 15px !important;
+    font-size: 100%; !important;
     background-color: #EDEAE0!important;
 }
 
@@ -105,3 +105,41 @@ body {
     background-color: white;
 }
 
+.picture{
+    width: 30%;
+    height: 100%;
+    float: left;
+}
+
+.details{
+    padding: 5px;
+    margin: auto;
+    height: 45vh;
+    width: 70%;
+    background-color: white;
+    border-style: solid;
+    border-radius: 5px;
+    border-color: grey;
+}
+
+
+.caption_detials{
+    height: 100%;
+    float: left;
+    font-family: "Arial";
+    font-size: 2em;
+    margin-left: 2vw;
+    /* border-style: solid;
+    border-color: black; */
+}
+
+.caption{
+    height: 100%;
+    float: left;
+    font-family: "Arial";
+    font-weight: bold;
+    font-size: 2em;
+    text-decoration: underline;
+    /* border-style: solid;
+    border-color: black; */
+}

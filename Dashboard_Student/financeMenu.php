@@ -48,7 +48,7 @@
                 </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="logout.php"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+                <li><a href="../index.php"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
             </ul>
         </div>
     </nav>

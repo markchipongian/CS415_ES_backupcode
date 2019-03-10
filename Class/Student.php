@@ -56,7 +56,24 @@
 
         public function student_details($student_id)
         {
-
+            try
+			{
+				//Create instance of Database Connection
+				$conn = new DBConn();
+                $conn = $conn->connect();
+                
+                $stmt = $conn->prepare("SELECT * FROM STUDENT WHERE STUDENT_ID = (:student_id);");
+                $stmt->bindParam(':student_id', $student_id);
+                if($stmt->execute())
+				{
+                    $result = $stmt->fetchAll();
+                    return $result;
+                }
+            }
+            catch(PDOException $e)
+			{
+				echo "Error: " . $e->getMessage();
+			}
         }
 
         public function student_academic_details($student_id)
@@ -316,7 +333,7 @@
 				$conn = new DBConn();
                 $conn = $conn->connect();
                 
-                $stmt = $conn->prepare("SELECT * FROM COMP_COURSE WHERE STUDENT_ID = (:student_id);");
+                $stmt = $conn->prepare("SELECT * FROM COMP_COURSE WHERE STUDENT_ID = (:student_id) AND GRADE LIKE 'A%' OR GRADE LIKE 'B%' OR GRADE LIKE 'C%'OR GRADE LIKE 'R%' OR GRADE LIKE 'P%' OR GRADE LIKE 'M%' OR GRADE LIKE 'S%';");
                 $stmt->bindParam(':student_id', $student_id);
                 if($stmt->execute())
 				{

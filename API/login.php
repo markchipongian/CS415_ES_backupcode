@@ -33,7 +33,7 @@ session_start();
 
     if(isset($_POST['submit']))
     {
-        $alertmsgg = "<div class='alert alert-danger'>Incorrect Username or Password</div>";
+        $alertmsgg = "<div class='alert alert-danger'> <a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>Incorrect Username or Password</div>";
 
         $id = $_POST['username'];
         $password = $_POST['password'];

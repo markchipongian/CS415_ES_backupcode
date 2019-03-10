@@ -98,22 +98,14 @@ body {
 }
 
 .warning-messg{
-    margin-top:5px;
-    margin-left:35.5vw;
-    width: 30%;
+    float: inherit;
+    width: 90%;
     text-align:center;
+    margin: auto;
 }
 
 .LoginButton{
     margin-top: 5%;
     text-align: center;
     margin-bottom: 5%;
-}
-
-
-
-.icon{
-    padding: 0;
-    margin-top: 10%;
-    font-size: 3vw;
 }

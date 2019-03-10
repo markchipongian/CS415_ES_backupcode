@@ -87,7 +87,7 @@ session_start();
                 </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="logout.php"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+                <li><a href="../index.php"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
             </ul>
         </div>
     </nav>
@@ -113,7 +113,7 @@ session_start();
             <table class="table table-striped">
                     <thead>
                         <tr>
-                            <th>Course Codes</th>
+                            <th>COURSE CODES</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -141,7 +141,7 @@ session_start();
             <table class="table table-striped">
                     <thead>
                         <tr>
-                            <th>Course Codes</th>
+                            <th>COURSE CODES</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -172,7 +172,7 @@ session_start();
             <table class="table table-striped">
                     <thead>
                         <tr>
-                            <th>Course Codes</th>
+                            <th>COURSE CODES</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -216,9 +216,9 @@ session_start();
             <table class="table table-striped">
                     <thead>
                         <tr>
-                            <th>Course Codes</th>
-                            <th>Prerequisite</th>
-                            <th>Prerequisite Alternate</th>
+                            <th>COURSE CODES</th>
+                            <th>PREREQUISITE</th>
+                            <th>ALTERNATE PREREQUISITE</th>
                         </tr>
                     </thead>
                     <tbody>
