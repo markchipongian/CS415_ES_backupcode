@@ -49,6 +49,9 @@ session_start();
                     <a class="nav-link" href="programAudit.php">Program Audit</a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" href="prerequisites.php">Prerequisites</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="financeMenu.php">Finance Menu</a>
                 </li>
             </ul>

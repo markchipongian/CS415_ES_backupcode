@@ -63,6 +63,9 @@ foreach($details as $row){
                     <a class="nav-link" href="programAudit.php">Program Audit</a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" href="prerequisites.php">Prerequisites</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="financeMenu.php">Finance Menu</a>
                 </li>
             </ul>
@@ -99,7 +102,7 @@ foreach($details as $row){
                     <?php echo $lname; ?><br />
                     <?php 
                         if(empty($oname)){
-                            echo "NULL";
+                            echo "--";
                         }else{
                             echo $oname; 
                         }

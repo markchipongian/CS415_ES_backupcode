@@ -83,6 +83,9 @@ session_start();
                     <a class="nav-link" href="programAudit.php">Program Audit</a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" href="prerequisites.php">Prerequisites</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="financeMenu.php">Finance Menu</a>
                 </li>
             </ul>
@@ -206,53 +209,6 @@ session_start();
                     </tbody>
             </table>
         </div>
-
-        <div class="courses-title">
-            <h1>Prerequisites</h1>
-            <p>This table  shows the courses and thier prerequisites</p>
-        </div>
-
-        <div class="courses-table">
-            <table class="table table-striped">
-                    <thead>
-                        <tr>
-                            <th>COURSE CODES</th>
-                            <th>PREREQUISITE</th>
-                            <th>ALTERNATE PREREQUISITE</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php
-                            foreach($array2 as $items)
-                            {
-                                $course_code = $items;
-                                echo "<tr>
-                                     <td><div style ='font-weight: bold;'>". $course_code."</div></td>";
-
-                                $result = $student->student_prereqs($course_code);
-                                if(empty($result)){
-                                    echo "<td> ". "<div style ='color:#FF8000'>No Prerequisite</div>"."</td>";
-                                    echo "<td> ". "<div style ='color:#FF8000'>No Prerequisite</div>"."</td>";
-                                }else{
-                                    foreach ( $result as $var ) {
-                                        if(empty($var['COURSE_CODE_ALT'])){
-                                            echo "<td> <div style ='color: #FF0000; font-weight: bold;'>". $var['COURSE_CODE_COMP']."</div></td>";
-                                            echo "<td> ". "<div style ='color:#FF8000'>No Prerequisite</div>"."</td>";
-                                        }else{
-                                            echo "<td> <div style ='color: #FF0000; font-weight: bold;'>". $var['COURSE_CODE_COMP']."</div></td>";
-                                            echo "<td> <div style ='color: #FF0000; font-weight: bold;'>". $var['COURSE_CODE_ALT']."</div></td>";
-                                        }
-                                    }
-                                }
-                                echo	'</tr>';
-                            }  
-                            
-                           
-                        ?>
-                    </tbody>
-            </table>
-        </div>
-
     </div>
 </body>
 </html>
