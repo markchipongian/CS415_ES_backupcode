@@ -105,7 +105,7 @@ session_start();
         </div>
 
         <div class="button-box">
-            <a href="register_courses.php" class="btn btn-default">Register For Courses</a>
+            <a href="register_courses.php" class="btn btn-info btn-lg" role="button">Register For Courses</a>
         </div>
 
 

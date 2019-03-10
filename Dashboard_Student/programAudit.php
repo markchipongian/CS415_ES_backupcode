@@ -42,7 +42,7 @@ session_start();
             var data = google.visualization.arrayToDataTable([
             ['Courses Completed', 'Total Courses'],
             ['Courses Completed',     <?php echo $student_course_completed ?>],
-            ['Courses Left',      <?php echo $student_course_to_complete?>],
+            ['Courses Left',      <?php echo $student_course_to_complete-$student_course_completed ?>],
             ['Courses Registered',      <?php echo $student_course_registered?>],
             ]);
 
