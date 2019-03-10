@@ -39,17 +39,7 @@ foreach($result as $row)
 print_r($array_course_1);
 
 foreach($array_course_1 as $values){
-            echo $values[0][0];
-            echo $values[0][1];
-            echo $values[0][2];
-            echo $values[0][3];
-            echo $values[0][4];
 
-            echo $values[1][0];
-            echo $values[1][1];
-            echo $values[1][2];
-            echo $values[1][3];
-            echo $values[1][4];
 
 
 } 

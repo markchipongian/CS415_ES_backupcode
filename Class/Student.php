@@ -370,11 +370,23 @@
 
         public function student_course_not_completed($student_id)
         {
-            $result_prog = $this->student_course($student_id);
-            $result_comp = $this->student_course_completed($student_id);
-            $rsult_register = $this->student_course_registered($student_id);
-            $array[50];
-            $size = 0;
+            $array1 = array();
+            $array2 = array();
+
+            $courses_compl = $this->student_course_completed($student_id);
+            $courses_to_compl = $this->student_course_to_complete($student_id);
+
+            foreach($courses_compl as $row){
+                $array1[] = $row["COURSE_CODE"];
+            }
+
+            foreach ( $courses_to_compl as $var ) {
+                $array2[] = $var['value'];
+            }
+
+            $courses_left = array_diff($array2 , $array1);
+
+            return $courses_left;
         }
 
 

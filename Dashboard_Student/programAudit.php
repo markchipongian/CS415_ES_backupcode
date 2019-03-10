@@ -180,22 +180,7 @@ session_start();
                     </thead>
                     <tbody>
                         <?php
-                            $array1 = array();
-                            $array2 = array();
-
-                            $courses_compl = $student->student_course_completed($student_id);
-                            $courses_to_compl = $student->student_course_to_complete($student_id);
-
-                            foreach($courses_compl as $row){
-                                $array1[] = $row["COURSE_CODE"];
-                            }
-
-                            foreach ( $courses_to_compl as $var ) {
-                                $array2[] = $var['value'];
-                            }
-
-                            $courses_left = array_diff($array2 , $array1);
-
+                            $courses_left = $student->student_course_not_completed($student_id);
                             foreach($courses_left as $row){
 
                                 echo "<tr>

@@ -166,3 +166,19 @@ body {
     border-style: solid;
     border-color: black;
 }
+
+/* Registration Page*/
+
+.button-box{
+    margin-left: 20%;
+    border-style: solid;
+    border-color: black;
+    width: 100%;
+    height: 100%;
+}
+
+.btn-xl {
+    padding: 10px 20px!important;
+    font-size: 20px!important;
+    border-radius: 10px!important;
+}

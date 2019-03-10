@@ -1,3 +1,18 @@
+<?php require_once("../Class/Student.php"); ?>
+<?php
+// Start the session
+session_start();
+?>
+
+<?php
+    $student = new Student();
+    $student_id = $_SESSION["id"];
+    $student_course_completed = Count($student->student_course_completed($student_id));
+    $student_course_registered = Count($student->student_course_registered($student_id));
+    $student_course_to_complete = Count($student->student_course_to_complete($student_id));
+
+
+?>
 <!DOCTYPE html>
 <html>
 
@@ -62,6 +77,37 @@
             <h1>Registrations</h1>
             <p>From here you can manage you registrations as well as view them.</p>
         </div>
+
+        <div class="courses-table">
+            <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>COURSE CODES</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                            $courses_reg = $student->student_course_registered($student_id);
+                            foreach($courses_reg as $row){
+
+                                echo "<tr>
+                                          <td> <div style ='font-weight: bold;'>". $row["COURSE_CODE"] ."</div></td>
+                                          <td>";
+                                echo	'</td>
+                                    </tr>';
+                            }if(empty($courses_reg)){
+                                echo "<tr><td><div style ='font-weight: bold; color: red;'>You Have Not Registered For Any Course</div></td></tr>";
+                            }
+
+                        ?>
+                    </tbody>
+            </table>
+        </div>
+
+        <div class="button-box">
+            <a href="register_courses.php" class="btn btn-default">Register For Courses</a>
+        </div>
+
 
     </div>
 
