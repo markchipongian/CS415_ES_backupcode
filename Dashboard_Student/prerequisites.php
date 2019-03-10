@@ -12,8 +12,6 @@ $array_course_1 = array();
 $array_course_2 = array();
 $array_course_3 = array();
 $array_course_4 = array();
-$array_final = array();
-
 
 foreach($result as $row)
 {
@@ -37,6 +35,12 @@ foreach($result as $row)
     }
 }
 
+
+
+$arraysize1 = sizeof($array_course_1);
+$arraysize2 = sizeof($array_course_2);
+$arraysize3 = sizeof($array_course_3);
+$arraysize4 = sizeof($array_course_4);
 
 ?>
 
@@ -101,7 +105,11 @@ foreach($result as $row)
     <div class="Container">
         <div class="page-title">
             <h1>Prerequisites</h1>
-            <p>This table  shows the courses and thier prerequisites</p>
+            <p>This table  shows the courses and thier prerequisites for your programme</p>
+        </div>
+
+        <div class="legend">
+            <img src="../images/legend.png" style="width:100%; height:100%;">
         </div>
 
         <div class="preq">
@@ -110,63 +118,451 @@ foreach($result as $row)
                     <h1>100 Level Courses</h1>
                 </div>
                 <div class="level">
-                    <?php foreach($array_course_1 as $values){ ?>
+                    <?php for($i = 0 ; $i < $arraysize1; $i++){ ?>
                         <div class="course">
-                            <?php
-                                echo $values[0][0];
-                            ?>
-                        </div>
+                            <div class="course-code">
+                                <?php echo $array_course_1[$i][0]; ?>
+                            </div>
+                            <div class="course-and">
+                                <?php echo $array_course_1[$i][1]; ?>
+                            </div>
+                            <div class="course-alt">
+                                <?php 
+                                echo $array_course_1[$i][2]; 
+                                echo $array_course_1[$i][3]; 
+                                echo $array_course_1[$i][4]; 
+                                ?>
+                            </div>
+                            <div class="course-and">
+                                <?php echo $array_course_1[$i][5]; ?>
+                            </div>
+                            <div class="course-alt">
+                                <?php 
+                                echo $array_course_1[$i][6]; 
+                                echo $array_course_1[$i][7]; 
+                                echo $array_course_1[$i][8]; 
+                                ?>
+                            </div>
+                            <div class="course-and">
+                                <?php echo $array_course_1[$i][9]; ?>
+                            </div>
+                            <div class="course-alt">
+                                <?php 
+                                echo $array_course_1[$i][10]; 
+                                ?>
+                            </div>
+                            <div class="course-and">
+                                <?php echo $array_course_1[$i][11]; ?>
+                            </div>
+                            <div class="course-alt">
+                                <?php 
+                                echo $array_course_1[$i][12]; 
+                                ?>
+                            </div>
+                            <div class="course-and">
+                                <?php echo $array_course_1[$i][13]; ?>
+                            </div>
+                            <div class="course-alt">
+                                <?php 
+                                echo $array_course_1[$i][14]; 
+                                ?>
+                            </div>
+                            <div class="course-and">
+                                <?php echo $array_course_1[$i][15]; ?>
+                            </div>
+                            <div class="course-alt">
+                                <?php 
+                                echo $array_course_1[$i][16]; 
+                                ?>
+                            </div>
+                         </div>
                     <?php } ?>
                 </div>
             <?php } ?>
-
             <?php if(!empty($array_course_2)){ ?>
                 <div class="courses-title">
                     <h1>200 Level Courses</h1>
                 </div>
                 <div class="level">
-                    <?php foreach($array_course_2 as $values){ ?>
+                    <?php for($i = 0 ; $i < $arraysize2; $i++){ ?>
                         <div class="course">
-                            <?php
-                                echo $values;
-                            ?>
-                        </div>
+                            <div class="course-code">
+                                <?php echo $array_course_2[$i][0]; ?>
+                            </div>
+                            <div class="course-and">
+                                <?php echo $array_course_2[$i][1]; ?>
+                            </div>
+                            <div class="course-alt">
+                                <?php 
+                                echo $array_course_2[$i][2]; 
+                                echo $array_course_2[$i][3]; 
+                                echo $array_course_2[$i][4]; 
+                                ?>
+                            </div>
+                            <div class="course-and">
+                                <?php echo $array_course_2[$i][5]; ?>
+                            </div>
+                            <div class="course-alt">
+                                <?php 
+                                echo $array_course_2[$i][6]; 
+                                echo $array_course_2[$i][7]; 
+                                echo $array_course_2[$i][8]; 
+                                ?>
+                            </div>
+                            <div class="course-and">
+                                <?php echo $array_course_2[$i][9]; ?>
+                            </div>
+                            <div class="course-alt">
+                                <?php 
+                                echo $array_course_2[$i][10]; 
+                                ?>
+                            </div>
+                            <div class="course-and">
+                                <?php echo $array_course_2[$i][11]; ?>
+                            </div>
+                            <div class="course-alt">
+                                <?php 
+                                echo $array_course_2[$i][12]; 
+                                ?>
+                            </div>
+                            <div class="course-and">
+                                <?php echo $array_course_2[$i][13]; ?>
+                            </div>
+                            <div class="course-alt">
+                                <?php 
+                                echo $array_course_2[$i][14]; 
+                                ?>
+                            </div>
+                            <div class="course-and">
+                                <?php echo $array_course_2[$i][15]; ?>
+                            </div>
+                            <div class="course-alt">
+                                <?php 
+                                echo $array_course_2[$i][16]; 
+                                ?>
+                            </div>
+                         </div>
                     <?php } ?>
                 </div>
             <?php } ?>
-
             <?php if(!empty($array_course_3)){ ?>
                 <div class="courses-title">
                     <h1>300 Level Courses</h1>
                 </div>
                 <div class="level">
-                    <?php foreach($array_course_3 as $values){ ?>
+                    <?php for($i = 0 ; $i < $arraysize3; $i++){ ?>
                         <div class="course">
-                            <?php
-                                echo $values;
-                            ?>
-                        </div>
+                            <div class="course-code">
+                                <?php echo $array_course_3[$i][0]; ?>
+                            </div>
+                            <div class="course-and">
+                                <?php echo $array_course_3[$i][1]; ?>
+                            </div>
+                            <div class="course-alt">
+                                <?php 
+                                echo $array_course_3[$i][2]; 
+                                echo $array_course_3[$i][3]; 
+                                echo $array_course_3[$i][4]; 
+                                ?>
+                            </div>
+                            <div class="course-and">
+                                <?php echo $array_course_3[$i][5]; ?>
+                            </div>
+                            <div class="course-alt">
+                                <?php 
+                                echo $array_course_3[$i][6]; 
+                                echo $array_course_3[$i][7]; 
+                                echo $array_course_3[$i][8]; 
+                                ?>
+                            </div>
+                            <div class="course-and">
+                                <?php echo $array_course_3[$i][9]; ?>
+                            </div>
+                            <div class="course-alt">
+                                <?php 
+                                echo $array_course_3[$i][10]; 
+                                ?>
+                            </div>
+                            <div class="course-and">
+                                <?php echo $array_course_3[$i][11]; ?>
+                            </div>
+                            <div class="course-alt">
+                                <?php 
+                                echo $array_course_3[$i][12]; 
+                                ?>
+                            </div>
+                            <div class="course-and">
+                                <?php echo $array_course_3[$i][13]; ?>
+                            </div>
+                            <div class="course-alt">
+                                <?php 
+                                echo $array_course_3[$i][14]; 
+                                ?>
+                            </div>
+                            <div class="course-and">
+                                <?php echo $array_course_3[$i][15]; ?>
+                            </div>
+                            <div class="course-alt">
+                                <?php 
+                                echo $array_course_3[$i][16]; 
+                                ?>
+                            </div>
+                         </div>
                     <?php } ?>
                 </div>
             <?php } ?>
-
             <?php if(!empty($array_course_4)){ ?>
                 <div class="courses-title">
                     <h1>400 Level Courses</h1>
                 </div>
                 <div class="level">
-                    <?php foreach($array_course_4 as $values){ ?>
+                    <?php for($i = 0 ; $i < $arraysize4; $i++){ ?>
                         <div class="course">
-                            <?php
-                                echo $values;
-                            ?>
-                        </div>
+                            <div class="course-code">
+                                <?php echo $array_course_4[$i][0]; ?>
+                            </div>
+                            <div class="course-and">
+                                <?php echo $array_course_4[$i][1]; ?>
+                            </div>
+                            <div class="course-alt">
+                                <?php 
+                                echo $array_course_4[$i][2]; 
+                                echo $array_course_4[$i][3]; 
+                                echo $array_course_4[$i][4]; 
+                                ?>
+                            </div>
+                            <div class="course-and">
+                                <?php echo $array_course_4[$i][5]; ?>
+                            </div>
+                            <div class="course-alt">
+                                <?php 
+                                echo $array_course_4[$i][6]; 
+                                echo $array_course_4[$i][7]; 
+                                echo $array_course_4[$i][8]; 
+                                ?>
+                            </div>
+                            <div class="course-and">
+                                <?php echo $array_course_4[$i][9]; ?>
+                            </div>
+                            <div class="course-alt">
+                                <?php 
+                                echo $array_course_4[$i][10]; 
+                                ?>
+                            </div>
+                            <div class="course-and">
+                                <?php echo $array_course_4[$i][11]; ?>
+                            </div>
+                            <div class="course-alt">
+                                <?php 
+                                echo $array_course_4[$i][12]; 
+                                ?>
+                            </div>
+                            <div class="course-and">
+                                <?php echo $array_course_4[$i][13]; ?>
+                            </div>
+                            <div class="course-alt">
+                                <?php 
+                                echo $array_course_4[$i][14]; 
+                                ?>
+                            </div>
+                            <div class="course-and">
+                                <?php echo $array_course_4[$i][15]; ?>
+                            </div>
+                            <div class="course-alt">
+                                <?php 
+                                echo $array_course_4[$i][16]; 
+                                ?>
+                            </div>
+                         </div>
                     <?php } ?>
                 </div>
             <?php } ?>
         </div>
 
     </div>
-
 </body>
 </html>
+
+
+
+
+
+
+<!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!OLD CODE DONT USE !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+
+<!-- <?php for($k = 1 ; $k < $arraysize3; $k++){
+                                    
+                        } ?> -->
+
+                        
+<!-- <?php if(!empty($array_course_3[$i][1]) && empty($array_course_3[$i][2]) && empty($array_course_3[$i][3]) 
+                                    && empty($array_course_3[$i][4]) && empty($array_course_3[$i][5]) && empty($array_course_3[$i][6]) && empty($array_course_3[$i][7]) 
+                                    && empty($array_course_3[$i][8]) && empty($array_course_3[$i][9]) && empty($array_course_3[$i][10]) && empty($array_course_3[$i][11])
+                                    && empty($array_course_3[$i][12]) && empty($array_course_3[$i][13]) && empty($array_course_3[$i][14]) && empty($array_course_3[$i][15]) 
+                                    && empty($array_course_3[$i][16]) ){//only one preq ?> 
+                                        <div class="course-alt">
+                                            <?php echo $array_course_3[$i][0]; ?>
+                                         </div>
+                                    <?php }else if (!empty($array_course_3[$i][1]) && !empty($array_course_3[$i][2]) && empty($array_course_3[$i][3]) 
+                                    && empty($array_course_3[$i][4]) && empty($array_course_3[$i][5]) && empty($array_course_3[$i][6]) && empty($array_course_3[$i][7]) 
+                                    && empty($array_course_3[$i][8]) && empty($array_course_3[$i][9]) && empty($array_course_3[$i][10]) && empty($array_course_3[$i][11])
+                                    && empty($array_course_3[$i][12]) && empty($array_course_3[$i][13]) && empty($array_course_3[$i][14]) && empty($array_course_3[$i][15]) 
+                                    && empty($array_course_3[$i][16]) ){//one preq with one alt?>
+                                        <div class="course-alt">
+                                            <?php echo $array_course_3[$i][1]; ?>
+                                        </div>
+                                    <?php }else if (!empty($array_course_3[$i][1]) && !empty($array_course_3[$i][2]) && !empty($array_course_3[$i][3]) 
+                                    && empty($array_course_3[$i][4]) && empty($array_course_3[$i][5]) && empty($array_course_3[$i][6]) && empty($array_course_3[$i][7]) 
+                                    && empty($array_course_3[$i][8]) && empty($array_course_3[$i][9]) && empty($array_course_3[$i][10]) && empty($array_course_3[$i][11])
+                                    && empty($array_course_3[$i][12]) && empty($array_course_3[$i][13]) && empty($array_course_3[$i][14]) && empty($array_course_3[$i][15]) 
+                                    && empty($array_course_3[$i][16]) ){//one preq with two alt?>
+                                        <div class="course-alt">
+                                            <?php echo $array_course_3[$i][1]; 
+                                                echo " OR ";
+                                                echo $array_course_3[$i][2]; 
+                                            ?>
+                                        </div>
+                                    <?php }else if (!empty($array_course_3[$i][1]) && !empty($array_course_3[$i][2]) && !empty($array_course_3[$i][3]) 
+                                    && !empty($array_course_3[$i][4]) && empty($array_course_3[$i][5]) && empty($array_course_3[$i][6]) && empty($array_course_3[$i][7]) 
+                                    && empty($array_course_3[$i][8]) && empty($array_course_3[$i][9]) && empty($array_course_3[$i][10]) && empty($array_course_3[$i][11])
+                                    && empty($array_course_3[$i][12]) && empty($array_course_3[$i][13]) && empty($array_course_3[$i][14]) && empty($array_course_3[$i][15]) 
+                                    && empty($array_course_3[$i][16]) ){//one preq with three alt?>
+                                        <div class="course-alt">
+                                        <?php echo $array_course_3[$i][1]; 
+                                                echo " OR ";
+                                                echo $array_course_3[$i][2]; 
+                                                echo " OR ";
+                                                echo $array_course_3[$i][3]; 
+                                            ?>
+                                        </div>
+                                    <?php } else if (!empty($array_course_3[$i][1]) && empty($array_course_3[$i][2]) && empty($array_course_3[$i][3]) 
+                                    && !empty($array_course_3[$i][4]) && !empty($array_course_3[$i][5]) && empty($array_course_3[$i][6]) && empty($array_course_3[$i][7]) 
+                                    && empty($array_course_3[$i][8]) && empty($array_course_3[$i][9]) && empty($array_course_3[$i][10]) && empty($array_course_3[$i][11])
+                                    && empty($array_course_3[$i][12]) && empty($array_course_3[$i][13]) && empty($array_course_3[$i][14]) && empty($array_course_3[$i][15]) 
+                                    && empty($array_course_3[$i][16]) ){//two preq with no alt?>
+                                            <div class="course-and">
+                                            <?php echo $array_course_3[$i][1]; 
+                                                    echo " AND ";
+                                                    echo $array_course_3[$i][5]; 
+                                                ?>
+                                            </div>
+                                    <?php }  else if (!empty($array_course_3[$i][1]) && empty($array_course_3[$i][2]) && empty($array_course_3[$i][3]) 
+                                    && !empty($array_course_3[$i][4]) && !empty($array_course_3[$i][5]) && !empty($array_course_3[$i][6]) && empty($array_course_3[$i][7]) 
+                                    && empty($array_course_3[$i][8]) && empty($array_course_3[$i][9]) && empty($array_course_3[$i][10]) && empty($array_course_3[$i][11])
+                                    && empty($array_course_3[$i][12]) && empty($array_course_3[$i][13]) && empty($array_course_3[$i][14]) && empty($array_course_3[$i][15]) 
+                                    && empty($array_course_3[$i][16]) ){//two preq with one alt?>
+                                        <div class="course-and">
+                                        <?php echo $array_course_3[$i][1]; 
+                                                echo " AND ";
+                                                echo $array_course_3[$i][5]; 
+                                            ?>
+                                        </div>
+                                        <div class="course-alt">
+                                        <?php 
+                                            echo $array_course_3[$i][6]; 
+                                            echo " OR ";
+                                            ?>
+                                        </div>
+                                    <?php }  else if (!empty($array_course_3[$i][1]) && empty($array_course_3[$i][2]) && empty($array_course_3[$i][3]) 
+                                    && !empty($array_course_3[$i][4]) && !empty($array_course_3[$i][5]) && !empty($array_course_3[$i][6]) && !empty($array_course_3[$i][7]) 
+                                    && empty($array_course_3[$i][8]) && empty($array_course_3[$i][9]) && empty($array_course_3[$i][10]) && empty($array_course_3[$i][11])
+                                    && empty($array_course_3[$i][12]) && empty($array_course_3[$i][13]) && empty($array_course_3[$i][14]) && empty($array_course_3[$i][15]) 
+                                    && empty($array_course_3[$i][16]) ){//two preq with two alt?>
+                                        <div class="course-and">
+                                        <?php echo $array_course_3[$i][1]; 
+                                                echo " AND ";
+                                                echo $array_course_3[$i][5]; 
+                                            ?>
+                                        </div>
+                                        <div class="course-alt">
+                                        <?php 
+                                            echo $array_course_3[$i][6]; 
+                                            echo " OR ";
+                                            echo $array_course_3[$i][7]; 
+                                            ?>
+                                        </div>
+                                    <?php }  else if (!empty($array_course_3[$i][1]) && empty($array_course_3[$i][2]) && empty($array_course_3[$i][3]) 
+                                    && !empty($array_course_3[$i][4]) && !empty($array_course_3[$i][5]) && !empty($array_course_3[$i][6]) && !empty($array_course_3[$i][7]) 
+                                    && !empty($array_course_3[$i][8]) && empty($array_course_3[$i][9]) && empty($array_course_3[$i][10]) && empty($array_course_3[$i][11])
+                                    && empty($array_course_3[$i][12]) && empty($array_course_3[$i][13]) && empty($array_course_3[$i][14]) && empty($array_course_3[$i][15]) 
+                                    && empty($array_course_3[$i][16]) ){//two preq with three alt?>
+                                       <div class="course-and">
+                                        <?php echo $array_course_3[$i][1]; 
+                                                echo " AND ";
+                                                echo $array_course_3[$i][5]; 
+                                            ?>
+                                        </div>
+                                        <div class="course-alt">
+                                        <?php 
+                                            echo $array_course_3[$i][6]; 
+                                            echo " OR ";
+                                            echo $array_course_3[$i][7]; 
+                                            echo " OR ";
+                                            echo $array_course_3[$i][8]; 
+                                            ?>
+                                        </div>
+                                    <?php }  else if (!empty($array_course_3[$i][1]) && empty($array_course_3[$i][2]) && empty($array_course_3[$i][3]) 
+                                    && !empty($array_course_3[$i][4]) && !empty($array_course_3[$i][5]) && empty($array_course_3[$i][6]) && empty($array_course_3[$i][7]) 
+                                    && empty($array_course_3[$i][8]) && empty($array_course_3[$i][9]) && empty($array_course_3[$i][10]) && empty($array_course_3[$i][11])
+                                    && empty($array_course_3[$i][12]) && empty($array_course_3[$i][13]) && empty($array_course_3[$i][14]) && empty($array_course_3[$i][15]) 
+                                    && empty($array_course_3[$i][16]) ){//three preq ?>
+                                        <div class="course-and">
+                                        <?php echo $array_course_3[$i][1]; 
+                                                echo " AND ";
+                                                echo $array_course_3[$i][5]; 
+                                                echo " AND ";
+                                                echo $array_course_3[$i][9]; 
+                                            ?>
+                                        </div>
+                                    <?php }  else if (!empty($array_course_3[$i][1]) && empty($array_course_3[$i][2]) && empty($array_course_3[$i][3]) 
+                                    && !empty($array_course_3[$i][4]) && !empty($array_course_3[$i][5]) && empty($array_course_3[$i][6]) && empty($array_course_3[$i][7]) 
+                                    && empty($array_course_3[$i][8]) && empty($array_course_3[$i][9]) && empty($array_course_3[$i][10]) && empty($array_course_3[$i][11])
+                                    && empty($array_course_3[$i][12]) && empty($array_course_3[$i][13]) && empty($array_course_3[$i][14]) && empty($array_course_3[$i][15]) 
+                                    && empty($array_course_3[$i][16]) ){//four preq ?>
+                                        <div class="course-and">
+                                        <?php echo $array_course_3[$i][1]; 
+                                                echo " AND ";
+                                                echo $array_course_3[$i][5]; 
+                                                echo " AND ";
+                                                echo $array_course_3[$i][9]; 
+                                                echo " AND ";
+                                                echo $array_course_3[$i][11]; 
+                                            ?>
+                                        </div>
+                                    <?php } else if (!empty($array_course_3[$i][1]) && empty($array_course_3[$i][2]) && empty($array_course_3[$i][3]) 
+                                    && !empty($array_course_3[$i][4]) && !empty($array_course_3[$i][5]) && empty($array_course_3[$i][6]) && empty($array_course_3[$i][7]) 
+                                    && empty($array_course_3[$i][8]) && empty($array_course_3[$i][9]) && empty($array_course_3[$i][10]) && empty($array_course_3[$i][11])
+                                    && empty($array_course_3[$i][12]) && empty($array_course_3[$i][13]) && empty($array_course_3[$i][14]) && empty($array_course_3[$i][15]) 
+                                    && empty($array_course_3[$i][16]) ){//five preq ?>
+                                        <div class="course-and">
+                                        <?php echo $array_course_3[$i][1]; 
+                                                echo " AND ";
+                                                echo $array_course_3[$i][5]; 
+                                                echo " AND ";
+                                                echo $array_course_3[$i][9]; 
+                                                echo " AND ";
+                                                echo $array_course_3[$i][11]; 
+                                                echo " AND ";
+                                                echo $array_course_3[$i][13]; 
+                                            ?>
+                                        </div>
+                                    <?php } else if (!empty($array_course_3[$i][1]) && empty($array_course_3[$i][2]) && empty($array_course_3[$i][3]) 
+                                    && !empty($array_course_3[$i][4]) && !empty($array_course_3[$i][5]) && empty($array_course_3[$i][6]) && empty($array_course_3[$i][7]) 
+                                    && empty($array_course_3[$i][8]) && empty($array_course_3[$i][9]) && empty($array_course_3[$i][10]) && empty($array_course_3[$i][11])
+                                    && empty($array_course_3[$i][12]) && empty($array_course_3[$i][13]) && empty($array_course_3[$i][14]) && empty($array_course_3[$i][15]) 
+                                    && empty($array_course_3[$i][16]) ){//six preq ?>
+                                        <div class="course-and">
+                                        <?php echo $array_course_3[$i][1]; 
+                                                echo " AND ";
+                                                echo $array_course_3[$i][5]; 
+                                                echo " AND ";
+                                                echo $array_course_3[$i][9]; 
+                                                echo " AND ";
+                                                echo $array_course_3[$i][11]; 
+                                                echo " AND ";
+                                                echo $array_course_3[$i][13]; 
+                                                echo " AND ";
+                                                echo $array_course_3[$i][15]; 
+                                            ?>
+                                        </div>
+                                    <?php } ?> -->

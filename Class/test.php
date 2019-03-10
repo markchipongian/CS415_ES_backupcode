@@ -39,43 +39,48 @@ $arraysize2 = sizeof($array_course_2);
 $arraysize3 = sizeof($array_course_3);
 $arraysize4 = sizeof($array_course_4);
 
-for($i = 0 ; $i < $arraysize1; $i++){
-    for($k = 0 ; $k < $arraysize1; $k++){
-        echo $array_course_1[$i][$k];
+// for($i = 0 ; $i < $arraysize1; $i++){
+//     for($k = 0 ; $k < $arraysize1; $k++){
+//         echo $array_course_1[$i][$k];
         
-    }
-    echo "   ";
-}
-echo "<br>";
-echo "<br>";
-echo "<br>";
-for($i = 0 ; $i < $arraysize2; $i++){
-    for($k = 0 ; $k < $arraysize2; $k++){
-        echo $array_course_2[$i][$k];
+//     }
+//     echo "   ";
+// }
+// echo "<br>";
+// echo "<br>";
+// echo "<br>";
+// for($i = 0 ; $i < $arraysize2; $i++){
+//     for($k = 0 ; $k < $arraysize2; $k++){
+//         echo $array_course_2[$i][$k];
         
-    }
-    echo "   ";
-}
+//     }
+//     echo "   ";
+// }
 
-echo "<br>";
-echo "<br>";
-echo "<br>";
-for($i = 0 ; $i < $arraysize3; $i++){
-    for($k = 0 ; $k < $arraysize3; $k++){
-        echo $array_course_3[$i][$k];
+// echo "<br>";
+// echo "<br>";
+// echo "<br>";
+// for($i = 0 ; $i < $arraysize3; $i++){
+//     for($k = 0 ; $k < $arraysize3; $k++){
+//         echo $array_course_3[$i][$k];
         
-    }
-    echo "   ";
-}
+//     }
+//     echo "   ";
+// }
 
-echo "<br>";
-echo "<br>";
-echo "<br>";
-for($i = 0 ; $i < $arraysize4; $i++){
-    for($k = 0 ; $k < $arraysize4; $k++){
-        echo $array_course_4[$i][$k];
+// echo "<br>";
+// echo "<br>";
+// echo "<br>";
+// for($i = 0 ; $i < $arraysize4; $i++){
+//     for($k = 0 ; $k < $arraysize4; $k++){
+//         echo $array_course_4[$i][$k];
         
-    }
-    echo "   ";
-}
+//     }
+//     echo "   ";
+// }
+
+echo $array_course_3[0][0];
+echo "<br />";
+echo $array_course_3[0][1];
+echo $array_course_3[0][0];
 ?>

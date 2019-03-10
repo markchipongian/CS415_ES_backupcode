@@ -146,9 +146,9 @@ body {
 
 .course{
     float: left;
-    margin: 3%;
-    width: 5em;
-    height: 5em;
+    margin: 1%;
+    width: 8em;
+    display: inline-block;
     border-style: solid;
     border-color: black;
     text-align: center;
@@ -161,10 +161,34 @@ body {
 
 .level{
     width: 100%;
-    height: 50vh;
-    padding: auto;
+    display: inline-block;
     border-style: solid;
     border-color: black;
+}
+
+
+.course-code{
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.course-alt{
+    color: Orangered;
+    font-weight: bold;
+}
+
+.course-and{
+    color: green;
+    font-weight: bold;
+}
+
+.legend{
+    height: 50%;
+    width: 50%;
+    margin: auto;
+    border-style: solid;
+    border-radius: 5px;
+    border-color: grey;
 }
 
 /* Registration Page*/
