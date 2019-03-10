@@ -181,12 +181,40 @@ CREATE TABLE STAFF
 CREATE TABLE PREREQUISITIES
 (
     COURSE_CODE VARCHAR(5) NOT NULL DEFAULT 0,
-    COURSE_CODE_COMP VARCHAR(5) NOT NULL DEFAULT 0,
+    COURSE_CODE_COMP VARCHAR(5) DEFAULT 0,
     COURSE_CODE_ALT VARCHAR(5) DEFAULT 0,
+    COURSE_CODE_ALTb VARCHAR(5) DEFAULT 0,
+    COURSE_CODE_ALTc VARCHAR(5) DEFAULT 0,
+    COURSE_CODE_COMP_2 VARCHAR(5) DEFAULT 0,
+    COURSE_CODE_ALT_2 VARCHAR(5) DEFAULT 0,
+    COURSE_CODE_ALT_2b VARCHAR(5) DEFAULT 0,
+    COURSE_CODE_ALT_2c VARCHAR(5) DEFAULT 0,
+    COURSE_CODE_COMP_3 VARCHAR(5) DEFAULT 0,
+    COURSE_CODE_ALT_3 VARCHAR(5) DEFAULT 0,
+    COURSE_CODE_COMP_4 VARCHAR(5) DEFAULT 0,
+    COURSE_CODE_ALT_4 VARCHAR(5) DEFAULT 0,
+    COURSE_CODE_COMP_5 VARCHAR(5) DEFAULT 0,
+    COURSE_CODE_ALT_5 VARCHAR(5) DEFAULT 0,
+    COURSE_CODE_COMP_6 VARCHAR(5) DEFAULT 0,
+    COURSE_CODE_ALT_6 VARCHAR(5) DEFAULT 0,
     PRIMARY KEY (COURSE_CODE, COURSE_CODE_COMP),
     CONSTRAINT FK_PRCC FOREIGN KEY (COURSE_CODE) REFERENCES COURSES (COURSE_CODE),
     CONSTRAINT FK_PRCCC FOREIGN KEY (COURSE_CODE_COMP) REFERENCES COURSES (COURSE_CODE),
-    CONSTRAINT FK_PRCCA FOREIGN KEY (COURSE_CODE_ALT) REFERENCES COURSES (COURSE_CODE)
+    CONSTRAINT FK_PRCCA FOREIGN KEY (COURSE_CODE_ALT) REFERENCES COURSES (COURSE_CODE),
+    CONSTRAINT FK_PRCCAb FOREIGN KEY (COURSE_CODE_ALTb) REFERENCES COURSES (COURSE_CODE),
+    CONSTRAINT FK_PRCCAc FOREIGN KEY (COURSE_CODE_ALTc) REFERENCES COURSES (COURSE_CODE),
+    CONSTRAINT FK_PRCCC2 FOREIGN KEY (COURSE_CODE_COMP_2) REFERENCES COURSES (COURSE_CODE),
+    CONSTRAINT FK_PRCCA2 FOREIGN KEY (COURSE_CODE_ALT_2) REFERENCES COURSES (COURSE_CODE),
+    CONSTRAINT FK_PRCCA2b FOREIGN KEY (COURSE_CODE_ALT_2b) REFERENCES COURSES (COURSE_CODE),
+    CONSTRAINT FK_PRCCA2c FOREIGN KEY (COURSE_CODE_ALT_2c) REFERENCES COURSES (COURSE_CODE),
+    CONSTRAINT FK_PRCCC3 FOREIGN KEY (COURSE_CODE_COMP_3) REFERENCES COURSES (COURSE_CODE),
+    CONSTRAINT FK_PRCCA3 FOREIGN KEY (COURSE_CODE_ALT_3) REFERENCES COURSES (COURSE_CODE),
+    CONSTRAINT FK_PRCCC4 FOREIGN KEY (COURSE_CODE_COMP_4) REFERENCES COURSES (COURSE_CODE),
+    CONSTRAINT FK_PRCCA4 FOREIGN KEY (COURSE_CODE_ALT_4) REFERENCES COURSES (COURSE_CODE),
+    CONSTRAINT FK_PRCCC5 FOREIGN KEY (COURSE_CODE_COMP_5) REFERENCES COURSES (COURSE_CODE),
+    CONSTRAINT FK_PRCCA5 FOREIGN KEY (COURSE_CODE_ALT_5) REFERENCES COURSES (COURSE_CODE),
+    CONSTRAINT FK_PRCCC6 FOREIGN KEY (COURSE_CODE_COMP_6) REFERENCES COURSES (COURSE_CODE),
+    CONSTRAINT FK_PRCCA6 FOREIGN KEY (COURSE_CODE_ALT_6) REFERENCES COURSES (COURSE_CODE)
 );
 
 CREATE TABLE REGISTRATION
@@ -197,6 +225,7 @@ CREATE TABLE REGISTRATION
     CONSTRAINT FK_RCC FOREIGN KEY (COURSE_CODE) REFERENCES COURSES (COURSE_CODE)
 );
 
+
 INSERT INTO COURSES (
     COURSE_CODE,
     COURSE_NAME,
@@ -206,159 +235,187 @@ INSERT INTO COURSES (
 )
 VALUES
     (
+        'IS121',
+        'Information Systems 1',
+        '1',
+        '$50',
+        NULL
+    ),
+    (
         'CS111',
         'Intro to Computing Science',
         '1',
         '$50',
-        ''
+        NULL
     ),
     (
         'MA111',
         'Calculus 1 & Linear ALgebra 1',
         '1',
         '$50',
-        ''
+        NULL
     ),
     (
         'UU100',
         'Communications and informations literacy',
         '1',
         '$50',
-        ''
+        NULL
     ),
     (
         'ST131',
         'Introduction to Satistics',
         '1',
         '$50',
-        ''
+        NULL
     ),
     (
         'UU114',
         'English for Acedemic Purposes',
         '2',
         '$50',
-        ''
+        NULL
     ),
     (
         'MA161',
         'Discrete Mathematics I',
         '2',
         '$50',
-        ''
+        NULL
     ),
     (
         'MA112',
         'Calculus 2',
         '2',
         '$50',
-        ''
+        NULL
     ),
     (
         'CS112',
         'Data Structures and Algorithms',
         '2',
         '$50',
-        ''
+        NULL
     ),
     (
         'CS211',
         'Computer Organization',
         '1',
         '$50',
-        ''
+        NULL
     ),
     (
         'UU200',
         'Ethics and Governance',
         '1',
         '$50',
-        ''
+        NULL
     ),
     (
         'CS240',
         'Software Engineering',
         '1',
         '$50',
-        ''
+        NULL
+    ),
+    (
+        'CS215',
+        'Computer Communications and Management',
+        '2',
+        '$50',
+        NULL
     ),
     (
         'IS222',
         'Database Management Systems',
         '1',
         '$50',
-        ''
+        NULL
     ),
     (
         'CS214',
         'Design & Analysis of Algorithms',
         '2',
         '$50',
-        ''
+        NULL
     ),
     (
         'CS241',
         'Software Design and Implementation',
         '2',
         '$50',
-        ''
+        NULL
     ),
     (
         'UU204',
         'Pacific Worlds',
         '2',
         '$50',
-        ''
+        NULL
     ),
     (
         'IS224',
         'Advanced Database Systems',
         '2',
         '$50',
-        ''
+        NULL
     ),
     (
         'CS310',
         'Computer Networks',
         '1',
         '$50',
-        ''
+        NULL
     ),
     (
         'CS311',
         'Operating Systems',
         '1',
         '$50',
-        ''
+        NULL
     ),
     (
         'IS333',
         'Project Management',
         '1',
         '$50',
-        ''
+        NULL
     ),
     (
         'CS324',
         'Distributed Computing',
         '2',
         '$50',
-        ''
+        NULL
     ),
     (
         'CS341',
         'Distributed Computing',
         '2',
         '$50',
-        ''
+        NULL
     ),
     (
         'IS314',
         'Computing Project',
         '2',
         '$50',
-        ''
-    );
+        NULL
+    ),
+    (
+        'IS323',
+        'Information Systems Analysis and Design',
+        '1',
+        '$50',
+        NULL
+    ),
+    (
+        'IS341',
+        'Computing Project',
+        '2',
+        '$50',
+        NULL
+    ),;
 
     INSERT INTO COMP_COURSE (
         STUDENT_ID,
@@ -411,6 +468,179 @@ VALUES
         'CS211',
         'A'
     );
+
+    INSERT INTO PREREQUISITIES (
+        COURSE_CODE,
+        COURSE_CODE_COMP,
+        COURSE_CODE_ALT,
+        COURSE_CODE_ALTb,
+        COURSE_CODE_ALTc,
+        COURSE_CODE_COMP_2,
+        COURSE_CODE_ALT_2,
+        COURSE_CODE_ALT_2b,
+        COURSE_CODE_ALT_2c,
+        COURSE_CODE_COMP_3,
+        COURSE_CODE_ALT_3,
+        COURSE_CODE_COMP_4 ,
+        COURSE_CODE_ALT_4,
+        COURSE_CODE_COMP_5,
+        COURSE_CODE_ALT_5,
+        COURSE_CODE_COMP_6 ,
+        COURSE_CODE_ALT_6
+    )
+    VALUES
+    (
+        'CS241',
+        'CS240',
+        NULL,
+        NULL,
+        NULL,
+        'CS112',
+        NULL,
+        NULL,
+        NULL,
+        NULL,
+        NULL,
+        NULL,
+        NULL,
+        NULL,
+        NULL,
+        NULL,
+        NULL
+    ),
+    (
+        'CS310',
+        'CS211',
+        'CS215',
+        NULL,
+        NULL,
+        NULL,
+        NULL,
+        NULL,
+        NULL,
+        NULL,
+        NULL,
+        NULL,
+        NULL,
+        NULL,
+        NULL,
+        NULL,
+        NULL
+    ),
+    (
+        'CS111',
+        'IS121',
+        NULL,
+        NULL,
+        NULL,
+        NULL,
+        NULL,
+        NULL,
+        NULL,
+        NULL,
+        NULL,
+        NULL,
+        NULL,
+        NULL,
+        NULL,
+        NULL,
+        NULL
+    ),
+    (
+        'CS112',
+        'CS111',
+        NULL,
+        NULL,
+        NULL,
+        NULL,
+        NULL,
+        NULL,
+        NULL,
+        NULL,
+        NULL,
+        NULL,
+        NULL,
+        NULL,
+        NULL,
+        NULL,
+        NULL
+    ),
+    (
+        'CS211',
+        'CS111',
+        NULL,
+        NULL,
+        NULL,
+        NULL,
+        NULL,
+        NULL,
+        NULL,
+        NULL,
+        NULL,
+        NULL,
+        NULL,
+        NULL,
+        NULL,
+        NULL,
+        NULL
+    ),
+    (
+        'CS214',
+        'CS111',
+        NULL,
+        NULL,
+        NULL,
+        NULL,
+        NULL,
+        NULL,
+        NULL,
+        NULL,
+        NULL,
+        NULL,
+        NULL,
+        NULL,
+        NULL,
+        NULL,
+        NULL
+    ),
+    (
+        'CS240',
+        'CS111',
+        NULL,
+        NULL,
+        NULL,
+        NULL,
+        NULL,
+        NULL,
+        NULL,
+        NULL,
+        NULL,
+        NULL,
+        NULL,
+        NULL,
+        NULL,
+        NULL,
+        NULL
+    ),
+    (
+        'IS314',
+        'CS241',
+        'IS323',
+        NULL,
+        NULL,
+        'IS333',
+        NULL,
+        NULL,
+        NULL,
+        NULL,
+        NULL,
+        NULL,
+        NULL,
+        NULL,
+        NULL,
+        NULL,
+        NULL
+    )
 
     SELECT STUDENT_ID, Course, value
 FROM (
@@ -477,4 +707,3 @@ FROM (
   SELECT student_prog.*, 'COURSE_31' AS Course, COURSE_3 AS value FROM student_prog 
 ) student_prog
 WHERE STUDENT_ID = "S111"
-
