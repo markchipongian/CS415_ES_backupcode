@@ -1,3 +1,12 @@
+<?php require_once("../Class/Student.php"); ?>
+<?php
+// Start the session
+session_start();
+
+$student = new Student();
+$student_id = $_SESSION["id"];
+
+?>
 <!DOCTYPE html>
 <html>
 
@@ -22,9 +31,9 @@
     <div class="header">
         <img src="../images/usp_logo.jpg" class="logo">
         <div class="title">
-            <h1>
+            <h2>
                 Excellence in Uniquely Pacific <br>Learning and Innovation
-            </h1>
+            </h2>
         </div>
     </div>
 
@@ -61,6 +70,41 @@
         <div class="page-title">
             <h1>Financial Menu</h1>
             <p>Your invoice for the current semester will be displayed below.</p>
+        </div>
+
+        <div class="fee">
+            <table class="table table-striped">
+                <div class="table responsive">
+                    <thead>
+                        <tr>
+                            <th>Course Code</th>
+                            <th>Course Name</th>
+                            <th>Semester</th>
+                            <th>Course Fee</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                            $result = $student->student_fee($student_id);
+                            $fees = array();
+                            foreach($result as $row){
+                                echo "<tr>
+                                          <td> ". $row["COURSE_CODE"] ."</td>
+                                           <td> ". $row["COURSE_NAME"] ."</td>
+                                           <td> ". $row["SEMESTER"] ."</td>
+                                           <td> <div style ='font-weight: bold; color: red;'>$". $row["FEE"] ."</div></td>";
+                                           $fees[] = $row["FEE"];
+                                echo	'</tr>';
+                            }if(!empty($result)){
+                                echo "<tr><td></td>";
+                                echo "<td></td>";
+                                echo "<td><div style ='font-weight: bold'> TOTAl FEES</div</td>";
+                                echo "<td><div style ='font-weight: bold; color: red;'> $". array_sum($fees)."</div></td></tr>";
+                            }
+                        ?>
+                    </tbody>
+                </div>    
+            </table>
         </div>
 
     </div>

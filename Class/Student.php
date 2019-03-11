@@ -49,7 +49,7 @@
 			}
         }
         
-        public function registration($student_id, $course_code)
+        public function registration($student_id)
         {
 
         }
@@ -401,6 +401,31 @@
                 $conn = $conn->connect();
                 
                 $stmt = $conn->prepare("SELECT * FROM COMP_COURSE WHERE STUDENT_ID = (:student_id) AND GRADE LIKE 'A%' OR GRADE LIKE 'B%' OR GRADE LIKE 'C%'OR GRADE LIKE 'R%' OR GRADE LIKE 'P%' OR GRADE LIKE 'M%' OR GRADE LIKE 'S%';");
+                $stmt->bindParam(':student_id', $student_id);
+
+                if($stmt->execute())
+				{
+                    $result = $stmt->fetchAll();
+                    return $result;
+                }
+            }
+            catch(PDOException $e)
+			{
+				echo "Error: " . $e->getMessage();
+			}
+        }
+
+        public function student_fee($student_id)
+        {
+            
+            try
+			{
+				//Create instance of Database Connection
+				$conn = new DBConn();
+                $conn = $conn->connect();
+                
+                
+                $stmt = $conn->prepare("SELECT * FROM `registration` left join courses on registration.COURSE_CODE = courses.COURSE_CODE  WHERE registration.STUDENT_ID = (:student_id)");
                 $stmt->bindParam(':student_id', $student_id);
 
                 if($stmt->execute())
