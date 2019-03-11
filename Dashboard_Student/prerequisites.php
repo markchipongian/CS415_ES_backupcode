@@ -69,6 +69,8 @@ $arraysize4 = sizeof($array_course_4);
 
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 </head>
 
 <body>
@@ -136,7 +138,9 @@ $arraysize4 = sizeof($array_course_4);
                             <div class="course-alt">
                                 <?php 
                                 echo $array_course_1[$i][2]; 
+                                echo " "; 
                                 echo $array_course_1[$i][3]; 
+                                echo " "; 
                                 echo $array_course_1[$i][4]; 
                                 ?>
                             </div>
@@ -146,7 +150,9 @@ $arraysize4 = sizeof($array_course_4);
                             <div class="course-alt">
                                 <?php 
                                 echo $array_course_1[$i][6]; 
+                                echo " "; 
                                 echo $array_course_1[$i][7]; 
+                                echo " "; 
                                 echo $array_course_1[$i][8]; 
                                 ?>
                             </div>
@@ -188,6 +194,7 @@ $arraysize4 = sizeof($array_course_4);
             <?php } ?>
             <?php if(!empty($array_course_2)){ ?>
                 <div class="courses-title">
+                    <i class="arrow down"></i>
                     <h1>200 Level Courses</h1>
                 </div>
                 <div class="level">
@@ -202,7 +209,9 @@ $arraysize4 = sizeof($array_course_4);
                             <div class="course-alt">
                                 <?php 
                                 echo $array_course_2[$i][2]; 
+                                echo " "; 
                                 echo $array_course_2[$i][3]; 
+                                echo " "; 
                                 echo $array_course_2[$i][4]; 
                                 ?>
                             </div>
@@ -212,7 +221,9 @@ $arraysize4 = sizeof($array_course_4);
                             <div class="course-alt">
                                 <?php 
                                 echo $array_course_2[$i][6]; 
+                                echo " "; 
                                 echo $array_course_2[$i][7]; 
+                                echo " "; 
                                 echo $array_course_2[$i][8]; 
                                 ?>
                             </div>
@@ -254,6 +265,7 @@ $arraysize4 = sizeof($array_course_4);
             <?php } ?>
             <?php if(!empty($array_course_3)){ ?>
                 <div class="courses-title">
+                <i class="arrow down"></i>
                     <h1>300 Level Courses</h1>
                 </div>
                 <div class="level">
@@ -268,7 +280,9 @@ $arraysize4 = sizeof($array_course_4);
                             <div class="course-alt">
                                 <?php 
                                 echo $array_course_3[$i][2]; 
+                                echo " "; 
                                 echo $array_course_3[$i][3]; 
+                                echo " "; 
                                 echo $array_course_3[$i][4]; 
                                 ?>
                             </div>
@@ -278,7 +292,9 @@ $arraysize4 = sizeof($array_course_4);
                             <div class="course-alt">
                                 <?php 
                                 echo $array_course_3[$i][6]; 
+                                echo " "; 
                                 echo $array_course_3[$i][7]; 
+                                echo " "; 
                                 echo $array_course_3[$i][8]; 
                                 ?>
                             </div>
@@ -320,6 +336,7 @@ $arraysize4 = sizeof($array_course_4);
             <?php } ?>
             <?php if(!empty($array_course_4)){ ?>
                 <div class="courses-title">
+                <i class="arrow down"></i>
                     <h1>400 Level Courses</h1>
                 </div>
                 <div class="level">
@@ -333,8 +350,10 @@ $arraysize4 = sizeof($array_course_4);
                             </div>
                             <div class="course-alt">
                                 <?php 
-                                echo $array_course_4[$i][2]; 
+                                echo $array_course_4[$i][2];
+                                echo " "; 
                                 echo $array_course_4[$i][3]; 
+                                echo " "; 
                                 echo $array_course_4[$i][4]; 
                                 ?>
                             </div>
@@ -344,7 +363,9 @@ $arraysize4 = sizeof($array_course_4);
                             <div class="course-alt">
                                 <?php 
                                 echo $array_course_4[$i][6]; 
+                                echo " "; 
                                 echo $array_course_4[$i][7]; 
+                                echo " "; 
                                 echo $array_course_4[$i][8]; 
                                 ?>
                             </div>

@@ -82,6 +82,20 @@ body {
     text-decoration: underline;
 }
 
+i {
+    border: solid black;
+    border-width: 0 20px 20px 0;
+    display: inline-block;
+    width: 5em !important;
+    height: 5em !important;
+    margin-bottom: 1%;
+  }
+
+  .down {
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+  }
+
 /*Grades Page*/
 .grades{
     width: 50%;
