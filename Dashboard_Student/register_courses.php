@@ -48,7 +48,7 @@ if(!isset($user_check))
                 <li class="nav-item">
                     <a class="nav-link" href="dashboard.php">Home</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item active">
                     <a class="nav-link" href="registrations.php">Registrations</a>
                 </li>
                 <li class="nav-item">

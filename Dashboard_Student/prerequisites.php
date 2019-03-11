@@ -125,6 +125,7 @@ $arraysize4 = sizeof($array_course_4);
             <?php if(!empty($array_course_1)){ ?>
                 <div class="courses-title">
                     <h1>100 Level Courses</h1>
+                    <p><b><u>Note:</u></b> You must finish 75% of your 100 level courses plus UU100 and UU114 in order to proceed to the next level</p>
                 </div>
                 <div class="level">
                     <?php for($i = 0 ; $i < $arraysize1; $i++){ ?>
@@ -196,6 +197,7 @@ $arraysize4 = sizeof($array_course_4);
                 <div class="courses-title">
                     <i class="arrow down"></i>
                     <h1>200 Level Courses</h1>
+                    <p><b><u>Note:</u></b> You must finish 75% of your 200 level courses plus UU200 and UU204 in order to proceed to the next level</p>
                 </div>
                 <div class="level">
                     <?php for($i = 0 ; $i < $arraysize2; $i++){ ?>
