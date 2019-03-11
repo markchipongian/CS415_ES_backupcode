@@ -1,3 +1,17 @@
+<?php
+
+// Start the session
+session_start();
+
+$user_check=$_SESSION['id'];
+if(!isset($user_check))
+{
+    header('Location:../index.php'); // Redirecting To Home Page
+}
+
+?>
+
+
 <!DOCTYPE html>
 <html>
 

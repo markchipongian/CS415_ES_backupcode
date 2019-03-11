@@ -621,6 +621,88 @@
 			}
 
         }
+
+        public function student_gpa($student_id)
+        {
+            $result;
+
+            try
+			{
+				//Create instance of Database Connection
+				$conn = new DBConn();
+                $conn = $conn->connect();
+                
+                $stmt = $conn->prepare("SELECT * FROM COMP_COURSE WHERE STUDENT_ID = (:student_id) ;");
+                $stmt->bindParam(':student_id', $student_id);
+
+                if($stmt->execute())
+				{
+                    $result = $stmt->fetchAll();
+                }
+            }
+            catch(PDOException $e)
+			{
+				echo "Error: " . $e->getMessage();
+            }
+            
+            $gpa = 0;
+            $size = 0;
+
+            foreach($result as $row)
+            {
+                if(!($row['COURSE_CODE'] == "EL001"))
+                {
+                    if($row['GRADE'] == "A+")
+                    {
+                        $gpa += 4.5;
+                        $size += 1;
+                    }
+                    else if($row['GRADE'] == "A")
+                    {
+                        $gpa += 4.0;
+                        $size += 1;
+                    }
+                    else if($row['GRADE'] == "B+")
+                    {
+                        $gpa += 3.5;  
+                        $size += 1;                  
+                    }
+                    else if($row['GRADE'] == "B")
+                    {
+                        $gpa += 3.0;   
+                        $size += 1;                 
+                    }
+                    else if($row['GRADE'] == "C+")
+                    {
+                        $gpa += 2.5;         
+                        $size += 1;          
+                    }
+                    else if($row['GRADE'] == "C")
+                    {
+                        $gpa += 2.0;
+                        $size += 1;
+                    }
+                    else if($row['GRADE'] == "R")
+                    {
+                        $gpa += 1.5;
+                        $size += 1;
+                    }
+                    else if($row['GRADE'] == "D")
+                    {
+                        $gpa += 1.0;
+                        $size += 1;
+                    }
+                    else if(($row['GRADE'] == "E") || ($row['GRADE'] == "EX"))
+                    {
+                        $gpa += 0;
+                        $size += 1;
+                    }
+                }
+            }
+
+            $total = round(($gpa / $size), 2);
+            return $total;
+        }
     }
 
 

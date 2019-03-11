@@ -1,8 +1,17 @@
 <?php
 // Start the session
 session_start();
+
+$user_check=$_SESSION['id'];
+if(!isset($user_check))
+{
+    header('Location:../index.php'); // Redirecting To Home Page
+}
+
 ?>
-<?php require_once("../Class/Student.php"); ?>
+<?php require_once("../Class/Student.php"); 
+
+?>
 <!DOCTYPE html>
 <html>
 
@@ -56,7 +65,7 @@ session_start();
                 </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="../index.php"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+                <li><a href="../logout.php"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
             </ul>
         </div>
     </nav>

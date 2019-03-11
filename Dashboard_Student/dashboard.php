@@ -3,11 +3,18 @@
 // Start the session
 session_start();
 
+$user_check=$_SESSION['id'];
+if(!isset($user_check))
+{
+    header('Location:../index.php'); // Redirecting To Home Page
+}
+
 
 $student = new Student();
 $student_id = $_SESSION["id"];
 
 $details = $student->student_details($student_id);
+$gpa = $student->student_gpa($student_id);
 foreach($details as $row){
     $fname = $row["First_Name"];
     $lname = $row["Last_Name"];
@@ -70,7 +77,7 @@ foreach($details as $row){
                 </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="../index.php"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+                <li><a href="../logout.php"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
             </ul>
         </div>
     </nav>
@@ -94,6 +101,8 @@ foreach($details as $row){
                     Student ID:<br />
                     Email:<br />
                     Mobile:<br />
+                    GPA:<br />
+
                 </p>
             </div>
             <div class="caption_detials">
@@ -110,6 +119,7 @@ foreach($details as $row){
                     <?php echo $student_id; ?><br />
                     <?php echo $email; ?><br />
                     <?php echo $mobile; ?><br />
+                    <?php echo $gpa; ?><br />
                 </p>
             </div>
         </div>

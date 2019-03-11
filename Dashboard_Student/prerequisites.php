@@ -3,6 +3,13 @@
 // Start the session
 session_start();
 
+$user_check=$_SESSION['id'];
+if(!isset($user_check))
+{
+    header('Location:../index.php'); // Redirecting To Home Page
+}
+
+
 $student = new Student();
 $student_id = $_SESSION["id"];
 
@@ -97,7 +104,7 @@ $arraysize4 = sizeof($array_course_4);
                 </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="../index.php"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+                <li><a href="../logout.php"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
             </ul>
         </div>
     </nav>

@@ -3,8 +3,16 @@
 // Start the session
 session_start();
 
+$user_check=$_SESSION['id'];
+if(!isset($user_check))
+{
+    header('Location:../index.php'); // Redirecting To Home Page
+}
+
+
 $student = new Student();
 $student_id = $_SESSION["id"];
+
 
 ?>
 <!DOCTYPE html>
@@ -60,7 +68,7 @@ $student_id = $_SESSION["id"];
                 </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="../index.php"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+                <li><a href="../logout.php"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
             </ul>
         </div>
     </nav>
@@ -98,7 +106,7 @@ $student_id = $_SESSION["id"];
                             }if(!empty($result)){
                                 echo "<tr><td></td>";
                                 echo "<td></td>";
-                                echo "<td><div style ='font-weight: bold'> TOTAl FEES</div</td>";
+                                echo "<td><div style ='font-weight: bold'> TOTAL FEES</div</td>";
                                 echo "<td><div style ='font-weight: bold; color: red;'> $". array_sum($fees)."</div></td></tr>";
                             }
                         ?>
