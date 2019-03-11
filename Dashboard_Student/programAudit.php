@@ -187,7 +187,7 @@ if(!isset($user_check))
                     </thead>
                     <tbody>
                         <?php
-                            $courses_left = $student->student_course_not_completed($student_id);
+                            $courses_left = $student->student_show_courses_to_complete($student_id);
                             foreach($courses_left as $row){
 
                                 echo "<tr>

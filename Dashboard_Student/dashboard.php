@@ -30,6 +30,7 @@ foreach($details as $row){
 <head>
     <title>Dashboard</title>
     <link rel="stylesheet" type="text/css" href="styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
@@ -42,6 +43,49 @@ foreach($details as $row){
 
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <script>
+    // $("#slideshow > div:gt(3)").hide();
+
+    //     setInterval(function() {
+    //     $('#slideshow > div:first')
+    //         .fadeOut(1000)
+    //         .next()
+    //         .fadeIn(1000)
+    //         .end()
+    //         .appendTo('#slideshow');
+    //     }, 2000);
+
+    var i = 0; 			// Start Point
+    var images = [];	// Images Array
+    var time = 3000;	// Time Between Switch
+        
+    // Image List
+    images[0] = "../images/profile_pic.png";
+    images[1] = "../images/1.jpg";
+    images[2] = "../images/2.jpg";
+
+    // Change Image
+    function changeImg(){
+        document.slide.src = images[i];
+
+        // Check If Index Is Under Max
+        if(i < images.length - 1){
+        // Add 1 to Index
+        i++; 
+        } else { 
+            // Reset Back To O
+            i = 0;
+        }
+
+        // Run function every x seconds
+        setTimeout("changeImg()", time);
+    }
+
+    // Run function when page loads
+    window.onload=changeImg;
+
+    </script>
 </head>
 
 <body>
@@ -88,11 +132,11 @@ foreach($details as $row){
             <h1>Welcome To Your Dashboard</h1>
             <p>This is your homepage and the root of the entire website, you can navigate to other pages from here.</p>
         </div>
-
         <div class="details">
-            <div class="picture">
-                <img src="../images/profile_pic.png" style="width: 100%; height: 100%;">
+            <div id="slideshow">
+                <img name="slide" style="width:100%;">
             </div>
+
             <div class="caption">
                 <p>
                     First Name:<br />
@@ -102,9 +146,9 @@ foreach($details as $row){
                     Email:<br />
                     Mobile:<br />
                     GPA:<br />
-
                 </p>
             </div>
+
             <div class="caption_detials">
                  <p>
                     <?php echo $fname; ?><br />
