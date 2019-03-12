@@ -100,14 +100,14 @@ $student_id = $_SESSION["id"];
                                           <td> ". $row["COURSE_CODE"] ."</td>
                                            <td> ". $row["COURSE_NAME"] ."</td>
                                            <td> ". $row["SEMESTER"] ."</td>
-                                           <td> <div style ='font-weight: bold; color: red;'>$". $row["FEE"] ."</div></td>";
+                                           <td> <div style ='font-weight: bold; color: red;'>". $row["FEE"] ."</div></td>";
                                            $fees[] = $row["FEE"];
                                 echo	'</tr>';
                             }if(!empty($result)){
                                 echo "<tr><td></td>";
                                 echo "<td></td>";
                                 echo "<td><div style ='font-weight: bold'> TOTAL FEES</div</td>";
-                                echo "<td><div style ='font-weight: bold; color: red;'> $". array_sum($fees)."</div></td></tr>";
+                                echo "<td><div style ='font-weight: bold; color: red;'> ". array_sum($fees)."</div></td></tr>";
                             }
                         ?>
                     </tbody>

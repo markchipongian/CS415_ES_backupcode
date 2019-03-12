@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 10, 2019 at 08:51 AM
+-- Generation Time: Mar 12, 2019 at 01:40 AM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.2
 
@@ -210,6 +210,14 @@ CREATE TABLE `registration` (
   `STUDENT_ID` varchar(9) NOT NULL DEFAULT '0',
   `COURSE_CODE` varchar(5) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `registration`
+--
+
+INSERT INTO `registration` (`STUDENT_ID`, `COURSE_CODE`) VALUES
+('S111', 'CS240'),
+('S111', 'IS222');
 
 -- --------------------------------------------------------
 
