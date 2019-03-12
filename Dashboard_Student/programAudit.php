@@ -174,7 +174,7 @@ if(!isset($user_check))
         </div>
 
         <div class="courses-title">
-            <h1>Courses Left Be Completed</h1>
+            <h1>Courses Left To Be Completed</h1>
             <p>This table  shows the courses that you have left</p>
         </div>
 
