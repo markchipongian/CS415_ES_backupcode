@@ -72,9 +72,9 @@ if(!isset($user_check))
 
     <div class="Container">
         <div class="page-title">
-            <h1>Acedemic History</h1>
+            <h1>Academic History</h1>
             <p>
-                In this page you will view your acedemic grades for units that you have completed.
+                In this page you will view your academic grades for units that you have completed.
             </p>
         </div>
         <div class="grades">

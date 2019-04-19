@@ -119,6 +119,8 @@ $arraysize4 = sizeof($array_course_4);
 
         <div class="legend">
             <img src="../images/legend.png" style="width:100%; height:100%;">
+            <br />
+            <p><b><u>Note:</u></b>   Prerequisites for the elective units need to be met before registration of all elective units. Elective units a represented as ELXXX</p>
         </div>
 
         <div class="preq">
