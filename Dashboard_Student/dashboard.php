@@ -13,15 +13,22 @@ if(!isset($user_check))
 $student = new Student();
 $student_id = $_SESSION["id"];
 
-$details = $student->student_details($student_id);
-$gpa = $student->student_gpa($student_id);
-foreach($details as $row){
-    $fname = $row["First_Name"];
-    $lname = $row["Last_Name"];
-    $oname = $row["Other_Name"];
-    $email = $row["Email"];
-    $mobile = $row["Phone_Number"];
-}
+// $details = $student->student_details($student_id);
+// $gpa = $student->student_gpa($student_id);
+// foreach($details as $row){
+//     $fname = $row["First_Name"];
+//     $lname = $row["Last_Name"];
+//     $oname = $row["Other_Name"];
+//     $email = $row["Email"];
+//     $mobile = $row["Phone_Number"];
+// }
+
+$fname = $_SESSION["First_Name"];
+$lname =  $_SESSION["Last_Name"];
+$oname = $_SESSION["Other_Name"];
+$email = $_SESSION["Email"];
+$mobile = $_SESSION["Phone_Number"];
+$gpa ="";
 
 ?>
 <!DOCTYPE html>

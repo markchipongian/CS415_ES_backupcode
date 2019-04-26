@@ -37,7 +37,8 @@
             ?>
         </div>
         <div class="Login">
-            <form action="API/login.php" method="POST">
+            <!-- <form action="API/login.php" method="POST"> -->
+            <form action="Web_Handler/web_handler.php" method="POST">
                 <div class="rounded">
                     <label id="label" for="username"><b>Username:</b></label>
                     <input type="text" placeholder="Enter Username" name="username" required class="form-control">
@@ -45,7 +46,7 @@
                     <input type="password" placeholder="Enter Password" name="password" required class="form-control">
                 </div>
                 <div class="LoginButton">
-                    <button type="submit" name="submit" class="btn btn-success">Login</button>
+                    <button type="submit" name="login" class="btn btn-success">Login</button>
                 </div>
             </form>
         </div>

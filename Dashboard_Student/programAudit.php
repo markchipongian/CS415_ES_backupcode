@@ -1,4 +1,5 @@
 <?php require_once("../Class/Student.php"); ?>
+<?php require_once("../Auth/web_authservice.php"); ?>
 <?php
 // Start the session
 session_start();
@@ -9,13 +10,19 @@ if(!isset($user_check))
     header('Location:../index.php'); // Redirecting To Home Page
 }
 ?>
-
 <?php
-    $student = new Student();
-    $student_id = $_SESSION["id"];
-    $student_course_completed = Count($student->student_course_completed($student_id));
-    $student_course_registered = Count($student->student_course_registered($student_id));
-    $student_course_to_complete = Count($student->student_course_to_complete($student_id));
+    // // $student = new Student();
+    // $student_id = $_SESSION["id"];
+    $student_det = array('username' => $_SESSION["id"]);
+    $data = json_encode($student_det);
+    $student_course_completed = json_decode(APICall($data,'completed_courses'), true);
+    $student_course_registered = json_decode(APICall($data,'registered_courses'), true);
+    $student_course_left = json_decode(APICall($data,'courses_left'), true);
+    $prog_list = json_decode(APICall($data,'prog_lists'), true);
+    $array_size = count($prog_list); 
+    // $student_course_completed = Count($student->student_course_completed($student_id));
+    // $student_course_registered = Count($student->student_course_registered($student_id));
+    // $student_course_to_complete = Count($student->student_course_to_complete($student_id));
 
 
 ?>
@@ -47,10 +54,9 @@ if(!isset($user_check))
         function drawChart() {
             var data = google.visualization.arrayToDataTable([
             ['Courses Completed', 'Total Courses'],
-            ['Courses Completed',     <?php echo $student_course_completed ?>],
-            ['Courses Left',      <?php $left =  $student_course_to_complete-($student_course_completed+$student_course_registered); 
-                                        echo $left; ?>],
-            ['Courses Registered',      <?php echo $student_course_registered?>],
+            ['Courses Completed',     <?php echo count($student_course_completed) ?>],
+            ['Courses Left',      <?php echo  count($student_course_left)?>],
+            ['Courses Registered',      <?php echo count($student_course_registered)?>],
             ]);
 
             var options = {
@@ -106,8 +112,36 @@ if(!isset($user_check))
     <div class="Container">
 
         <div class="page-title">
-            <h1>My Porgram Audit</h1>
+            <h1>My Programme Audit</h1>
             <p>Details about your current Program as well as courses and their information will be displayed here.</p>
+        </div>
+
+        <?php
+                if(isset($_SESSION['alert'])){
+                    $message = $_SESSION['alert'];
+                    echo $message;
+                }
+                unset($_SESSION['alert']);
+            ?>
+
+        <div class="prog_change_table">
+            <h2>Would you Like To Change Your Program?</h2>
+            <p>If you wish to change your current programme, the list below contains available programs to change to.</p>
+
+            <form action="../Web_Handler/web_handler.php" method="POST" class="form-inline">
+                <select name="prog" class="select-menu">
+                <option value="0">--Select Programme--</option>
+                <?php
+                    for($i = 0; $i < $array_size; $i++) { ?>
+                    <option value="<?=  $prog_list[$i][0] ?>"><?php echo $prog_list[$i][0] ?></option>
+                <?php } ?>
+                </select> <input class="button-select" type="submit" value="Submit" name="select_prog">
+            </form>
+        </div>
+
+        <div class="courses-title">
+            <h1>Programme Summary</h1>
+            <p>This Pie-Chart shows a summary of your programme</p>
         </div>
 
         <div class="pie-chart">
@@ -128,7 +162,7 @@ if(!isset($user_check))
                     </thead>
                     <tbody>
                         <?php
-                             $courses_compl = $student->student_course_completed($student_id);
+                            $courses_compl = $student_course_completed;
                             foreach($courses_compl as $row){
 
                                 echo "<tr>
@@ -156,7 +190,7 @@ if(!isset($user_check))
                     </thead>
                     <tbody>
                         <?php
-                            $courses_reg = $student->student_course_registered($student_id);
+                            $courses_reg = $student_course_registered;
                             foreach($courses_reg as $row){
 
                                 echo "<tr>
@@ -187,7 +221,7 @@ if(!isset($user_check))
                     </thead>
                     <tbody>
                         <?php
-                            $courses_left = $student->student_show_courses_to_complete($student_id);
+                            $courses_left = $student_course_left;
                             foreach($courses_left as $row){
 
                                 echo "<tr>
@@ -204,3 +238,4 @@ if(!isset($user_check))
     </div>
 </body>
 </html>
+

@@ -128,6 +128,27 @@ i {
     margin: auto;
 }
 
+.prog_change_table{
+    border-style: solid;
+    border-radius: 5px;
+    border-color: grey;
+    width: 70%;
+    margin: auto;
+    background-color: white;
+    text-align: center;
+    padding: 2%;
+}
+
+.select-menu{
+    width: 60%;
+    display: block;
+    text-align: center;
+    margin-left: 20%;
+    margin-right: 2%; 
+    border-style: solid;
+    border-color: black;
+}
+
 .courses-title{
     margin: auto;
     width: 100%;

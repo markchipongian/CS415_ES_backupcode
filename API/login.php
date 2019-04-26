@@ -48,7 +48,7 @@ session_start();
 
             if($result)
             {
-                echo $_SESSION["id"] = $id;
+               echo $_SESSION["id"] = $id;
                header("location: ../Dashboard_Student/dashboard.php");
             }
             else
