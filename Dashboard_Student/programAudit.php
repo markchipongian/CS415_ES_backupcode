@@ -20,9 +20,6 @@ if(!isset($user_check))
     $student_course_left = json_decode(APICall($data,'courses_left'), true);
     $prog_list = json_decode(APICall($data,'prog_lists'), true);
     $array_size = count($prog_list); 
-    // $student_course_completed = Count($student->student_course_completed($student_id));
-    // $student_course_registered = Count($student->student_course_registered($student_id));
-    // $student_course_to_complete = Count($student->student_course_to_complete($student_id));
 
 
 ?>

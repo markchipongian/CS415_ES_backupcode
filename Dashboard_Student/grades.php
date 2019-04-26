@@ -1,12 +1,13 @@
 <?php
 // Start the session
-session_start();
+// session_start();
 
-$user_check=$_SESSION['id'];
-if(!isset($user_check))
-{
-    header('Location:../index.php'); // Redirecting To Home Page
-}
+// $user_check=$_SESSION['id'];
+// if(!isset($user_check))
+// {
+//     header('Location:../index.php'); // Redirecting To Home Page
+// }
+
 
 ?>
 <?php require_once("../Class/Student.php"); 
@@ -84,17 +85,43 @@ if(!isset($user_check))
                         <tr>
                             <th>Course Code</th>
                             <th>Grade</th>
+                            <th>Option</th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php
-                            $student_id = $_SESSION["id"];
-                            $student = new Student();
-                            $result = $student->student_grades($student_id);
-                            foreach($result as $row){
+                            //Get Grades into tarray provided here!!
+                            $Grades = array( 
+                                array(
+                                    "COURSE_CODE" => "CS111",
+                                    "GRADE" => "A+",
+                                    "BOOL" => true
+                                ),
+                                array(
+                                    "COURSE_CODE" => "CS112",
+                                    "GRADE" => "valore",
+                                    "BOOL" => false
+                                ));//test array 
+
+                            //Old Code
+                            // $student_id = $_SESSION["id"];
+                            // $student = new Student();
+                            // $result = $student->student_grades($student_id);
+
+                            foreach($Grades as $row){
                                 echo "<tr>
                                           <td> ". $row["COURSE_CODE"] ."</td>
                                            <td> ". $row["GRADE"] ."</td>";
+                                if($row["BOOL"]){?>
+                                    <!-- <form method="post" action="PLACE PATH TO SEND VALUE(SELECTED COURSE CODE FOR RE-CHECK)  HERE"> -->
+                                    <input type="hidden" name="selected_course" value="<?php echo $row['COURSE_CODE']; ?>"/>
+
+                                    <?php echo "<td> <button type='submit' class='btn btn-success'>Re-Check</button></td>";?>
+                                    </form>
+                                    <?php
+                                }else{
+                                    echo "<td>No Option</td>";
+                                }
                                 echo	'</tr>';
                             }
                         ?>

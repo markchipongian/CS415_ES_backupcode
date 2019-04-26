@@ -79,51 +79,6 @@ $gpa ="";
             dots[slideIndex - 1].className += " active";
         } 
     </script>
-
-
-
-    <!-- <script>
-    // $("#slideshow > div:gt(3)").hide();
-
-    //     setInterval(function() {
-    //     $('#slideshow > div:first')
-    //         .fadeOut(1000)
-    //         .next()
-    //         .fadeIn(1000)
-    //         .end()
-    //         .appendTo('#slideshow');
-    //     }, 2000);
-
-    var i = 0; 			// Start Point
-    var images = [];	// Images Array
-    var time = 3000;	// Time Between Switch
-        
-    // Image List
-    images[0] = "../images/profile_pic.png";
-    images[1] = "../images/1.jpg";
-    images[2] = "../images/2.jpg";
-
-    // Change Image
-    function changeImg(){
-        document.slide.src = images[i];
-
-        // Check If Index Is Under Max
-        if(i < images.length - 1){
-        // Add 1 to Index
-        i++; 
-        } else { 
-            // Reset Back To O
-            i = 0;
-        }
-
-        // Run function every x seconds
-        setTimeout("changeImg()", time);
-    }
-
-    // Run function when page loads
-    window.onload=changeImg;
-
-    </script> -->
 </head>
 
 <body>

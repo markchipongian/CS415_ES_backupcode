@@ -1,3 +1,14 @@
+<?php
+// Start the session
+// session_start();
+
+// $user_check=$_SESSION['id'];
+// if(!isset($user_check))
+// {
+//     header('Location:../index.php'); // Redirecting To Home Page
+// }
+
+?>
 <!DOCTYPE html>
 <html>
 
@@ -22,9 +33,9 @@
     <div class="header">
         <img src="../images/usp_logo.jpg" class="logo">
         <div class="title">
-            <h1>
+            <h2>
                 Excellence in Uniquely Pacific <br>Learning and Innovation
-            </h1>
+            </h2>
         </div>
     </div>
 
@@ -32,16 +43,13 @@
         <div class="container-fluid" >
             <ul class="nav navbar-nav">
                 <li class="nav-item ">
-                    <a class="nav-link" href="dashboard_manager.php">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="registrations_open.php">Registrations</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="Programs.php">Programs</a>
+                    <a class="nav-link" href="dashboard.php">Home</a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="student_search.php">Student Search</a>
+                    <a class="nav-link" href="csv_upload.php" style="color: white!important;">Programme Upload</a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link" href="report.php">Finance Report</a>
                 </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
@@ -50,6 +58,29 @@
         </div>
     </nav>
 
-</body>
+    <div class="prog-title">
+        <h2>Programme Upload</h2>
+        <p>You can upload your programme CSV files here</p>
+    </div>
 
+    <div class="upload-box">
+        <!-- <form action="Destination for file" method="post" enctype="multipart/form-data">-->
+            <div class="input-group">
+                <div class="custom-file">
+                    <input type="file" class="custom-file-input" id="customFile">
+                    <label class="custom-file-label" for="customFile">Choose file</label>
+                </div>
+                <input type="submit" value="Upload File" name="submit">
+            </div>
+        </form>
+    </div>
+
+    <script>
+        $(".custom-file-input").on("change", function() {
+            var fileName = $(this).val().split("\\").pop();
+            $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+        });
+    </script>
+
+</body>
 </html>
