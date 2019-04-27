@@ -8,7 +8,7 @@
 //     header('Location:../index.php'); // Redirecting To Home Page
 // }
 
-//Array of all courses in finance table
+// FETCH AN Array of all courses in finance table
 $Courses = array( 
     array(
         "COURSE_CODE" => "CS111"
@@ -16,6 +16,16 @@ $Courses = array(
     array(
         "COURSE_CODE" => "CS112"
     ));//test array 
+
+//FETCH AN Array of all programmes in finance table
+$Porgrammes = array( 
+    array(
+        "PROG_CODE" => "BSE"
+    ),
+    array(
+        "PROG_CODE" => "BNC"
+    ));//test array 
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -77,7 +87,7 @@ $Courses = array(
 
     <div class="report-box">
         <!-- <form action="PLACE PATH TO SEND VALUE(SELECTED COURSE CODE FOR RE-CHECK)" method="POST" class="form-inline">-->
-            <label for="course" style="margin-left: 15%;">Select A Course:</label>
+            <label for="course" style="margin-left: 15%;">By Course:</label>
             <select name="course" class="report-dropdown">
                 <option value="" disabled selected>Select Course</option>
                 <?php
@@ -88,23 +98,70 @@ $Courses = array(
                     }
                 ?>
             </select> 
-            <label for="faculty" style="margin-left: 5%;">Select A Faculty:</label>
-            <select name="faculty" class="report-dropdown">
-                <option value="" disabled selected>Select Faculty</option>
-                <option value="FSTE">FSTE</option>
-                <option value="FBE">FBE</option>
-                <option value="FALE">FALE</option>
-                <option value="TAFE">TAFE</option>
+            <label for="prog" style="margin-left: 5%;">By Program:</label>
+            <select name="prog" class="report-dropdown">
+                <option value="" disabled selected>Select Program</option>
+                    <?php
+                        foreach($Porgrammes as $row){
+                    ?>
+                        <option value="<?php echo $row["PROG_CODE"] ?>" ><?php echo $row["PROG_CODE"] ?></option>
+                    <?php
+                        }
+                    ?>
             </select>
             <br />
+            <br />
+            <button type="button" class="btn btn-primary" style="margin-left: 28%;" onclick="byRegistration();">By Registration Date</button>
+            <button type="button" class="btn btn-primary" style="margin-left: 5%;" onclick="byYearSem();">By Year And Semester</button>
+            <br />
+            <br />
+                
+            <script>
+                function byRegistration(){
+                    document.getElementById('div1').style.display ='block';
+                    document.getElementById('div2').style.display = 'none';
+                }
+                function byYearSem(){
+                    document.getElementById('div1').style.display ='none';
+                    document.getElementById('div2').style.display = 'block';
+                }
+            </script>            
 
-            <label for="report_startDate" style="margin-left: 23%;">From:</label>
-            <input type="text" name="report_startDate"  id="date_start"/>
+            <div id="div1" class="by-registration-date">    
+                <label for="report_startDate" class="" >From:</label>
+                <input type="text" name="report_startDate"  id="date_start"/>
 
-            <label for="report_endDate">To:</label>
-            <input type="text" name="report_endDate" id="date_end"/>
-            <input class="button-select" type="submit" value="Submit" name="submit_report">
-        </form>
+                <label for="report_endDate" style="margin-left: 5%;">To:</label>
+                <input type="text" name="report_endDate" id="date_end"/>
+            </div>      
+
+            <div id="div2" class="by-year">    
+                <label for="year" >By Year:</label>
+                <select name="course" class="report-dropdown">
+                    <option value="" disabled selected>Select Year</option>
+                    <?php
+                        $currentYear = date("Y");
+                        $startYear = 1968;
+                        for($i = $currentYear;$i >= $startYear; $i--){
+                    ?>
+                        <option value="<?php echo $i ?>" ><?php echo $i ?></option>
+                    <?php
+                        }
+                    ?>
+                </select> 
+
+                <label for="year" style="margin-left: 5%;">By Semester:</label>
+                <select name="course" class="report-dropdown">
+                    <option value="" disabled selected>Select Semester</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">Both</option>
+                </select> 
+            </div>      
+                <br />
+                <br />
+                <input class="btn btn-success" style="margin-left: 45%;" type="submit" value="Submit" name="submit_report">
+            </form>
     </div>
 
     <script>
@@ -114,6 +171,7 @@ $Courses = array(
             minYear: 1901,
             maxYear: parseInt(moment().format('YYYY'),10)
         });
+
         $('input[name="report_endDate"]').daterangepicker({
             singleDatePicker: true,
             showDropdowns: true,
