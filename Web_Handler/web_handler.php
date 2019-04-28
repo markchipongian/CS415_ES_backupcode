@@ -43,7 +43,8 @@ require_once("../Auth/web_authservice.php"); ?>
             $_SESSION["Phone_Number"] = $responseData[0]['Phone_Number'];
             header("location: ../Dashboard_Student/dashboard.php");
         }
-    }else if(isset($_POST['select_prog']))
+    }
+    else if(isset($_POST['select_prog']))
     {
        // $alertmsgg = "<div class='alert alert-danger'> <a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>Incorrect Username or Password</div>";
         $type = 'select_prog';
@@ -62,7 +63,30 @@ require_once("../Auth/web_authservice.php"); ?>
         }
         //$responseData = json_decode($result,true);
         //echo $responseData;
-    }else
+    }
+    else if(isset($_POST['grade_recheck']))
+    { 
+       // $alertmsgg = "<div class='alert alert-danger'> <a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>Incorrect Username or Password</div>";
+        $type = 'grade_recheck';
+        $course_code = $_POST['selected_course'];
+        $cred = array('username' => $_SESSION["id"], 'course_code' => $course_code);
+        $data = json_encode($cred);
+        $result = APICall($data,$type); 
+
+         if($result == 'true')
+        {
+            echo "PASSED";
+        //     $alertmsgg = "<div class='alert alert-success'> <a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>Programme Successfully Changed</div>";
+        //     $_SESSION['alert'] = $alertmsgg;
+        //     header("location: ../Dashboard_Student/programAudit.php");
+         }else{
+             echo "FAILED";
+        //     header("location: ../Dashboard_Student/programAudit.php");
+         }
+        //$responseData = json_decode($result,true);
+        //echo $responseData;
+    }
+    else
     {
         echo "temp error message on web_handler";
     }

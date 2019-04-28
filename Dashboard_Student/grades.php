@@ -1,6 +1,6 @@
 <?php
 // Start the session
-// session_start();
+ session_start();
 
 // $user_check=$_SESSION['id'];
 // if(!isset($user_check))
@@ -10,9 +10,8 @@
 
 
 ?>
-<?php require_once("../Class/Student.php"); 
-
-?>
+<?php require_once("../Class/Student.php"); ?>
+<?php require_once("../Auth/web_authservice.php"); ?>
 <!DOCTYPE html>
 <html>
 
@@ -90,18 +89,21 @@
                     </thead>
                     <tbody>
                         <?php
+                         $student_det = array('username' => $_SESSION["id"]);
+                         $data = json_encode($student_det);
+                         $Grades = json_decode(APICall($data,'course_grades'), true);
                             //Get Grades into tarray provided here!!
-                            $Grades = array( 
-                                array(
-                                    "COURSE_CODE" => "CS111",
-                                    "GRADE" => "A+",
-                                    "BOOL" => true
-                                ),
-                                array(
-                                    "COURSE_CODE" => "CS112",
-                                    "GRADE" => "valore",
-                                    "BOOL" => false
-                                ));//test array 
+                            // $Grades = array( 
+                            //     array(
+                            //         "COURSE_CODE" => "CS111",
+                            //         "GRADE" => "A+",
+                            //         "BOOL" => true
+                            //     ),
+                            //     array(
+                            //         "COURSE_CODE" => "CS112",
+                            //         "GRADE" => "valore",
+                            //         "BOOL" => false
+                            //     ));//test array 
 
                             //Old Code
                             // $student_id = $_SESSION["id"];
@@ -112,18 +114,19 @@
                                 echo "<tr>
                                           <td> ". $row["COURSE_CODE"] ."</td>
                                            <td> ". $row["GRADE"] ."</td>";
-                                if($row["BOOL"]){?>
-                                    <!-- <form method="post" action="PLACE PATH TO SEND VALUE(SELECTED COURSE CODE FOR RE-CHECK)  HERE"> -->
+                                // if($row["BOOL"]){?>
+                                    <form method="POST" action="../Web_Handler/web_handler.php">
                                     <input type="hidden" name="selected_course" value="<?php echo $row['COURSE_CODE']; ?>"/>
 
-                                    <?php echo "<td> <button type='submit' class='btn btn-success'>Re-Check</button></td>";?>
+                                    <?php echo "<td> <button type='submit' name = 'grade_recheck' class='btn btn-success'>Re-Check</button></td>";?>
                                     </form>
                                     <?php
-                                }else{
-                                    echo "<td>No Option</td>";
-                                }
-                                echo	'</tr>';
-                            }
+                            //     }else
+                            //     {
+                            //         echo "<td>No Option</td>";
+                            //     }
+                            //     echo	'</tr>';
+                             }
                         ?>
                     </tbody>
                 </div>    
