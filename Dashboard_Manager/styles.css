@@ -127,3 +127,13 @@ body {
 .report-dropdown{
     width: 20%;
 }
+
+.by-registration-date{
+    display: none;
+    margin-left: 23%;
+}
+
+.by-year{
+    display: none;
+    margin-left: 23%;
+}
