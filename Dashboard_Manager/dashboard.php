@@ -1,6 +1,6 @@
 <?php
 // Start the session
-// session_start();
+session_start();
 
 // $user_check=$_SESSION['id'];
 // if(!isset($user_check))
@@ -9,6 +9,7 @@
 // }
 
 ?>
+<?php require_once("../Auth/web_authservice.php"); ?>
 <!DOCTYPE html>
 <html>
 
@@ -86,8 +87,8 @@
                             "GRADE" => "B+"
                         ),
                         array(
-                            "ID" => "S112",
-                            "COURSE_CODE" => "CS111",
+                            "ID" => "S111",
+                            "COURSE_CODE" => "UU114",
                             "GRADE" => "D"
                         ),
                         array(
@@ -103,7 +104,7 @@
                                     <td> <div style ='font-weight: bold;'>". $row["COURSE_CODE"] ."</div></td>
                                     <td> <div style ='font-weight: bold;'>". $row["GRADE"] ."</div></td>";
                             echo "<td>";?>
-                             <!-- <form action="PLACE PATH TO SEND VALUE(SELECTED COURSE CODE FOR RE-CHECK)" method="POST" class="form-inline">-->
+                             <form action="../Web_Handler/web_handler.php" method="POST" class="form-inline">
                                 <select name="grade" class="select-menu">
                                     <option value="Unchanged">Select Grade</option>
                                     <option value="A+">A+</option>
@@ -115,7 +116,9 @@
                                     <option value="D">D</option>
                                     <option value="E">E</option>
                                     <option value="Unchanged">Unchanged</option>
-                                </select> <input class="button-select" type="submit" value="Submit" name="select_grade">
+                                    <input type="hidden" name="selected_id" value="<?php echo $row['ID']; ?>"/>
+                                    <input type="hidden" name="selected_course" value="<?php echo $row['COURSE_CODE']; ?>"/>
+                                </select> <input class="button-select" type="submit" value="Submit" name="update_grade">
                             </form>
                             <?php echo "</td><td>";
                             echo	'</td> </tr>';

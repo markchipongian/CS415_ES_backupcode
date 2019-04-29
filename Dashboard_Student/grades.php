@@ -77,6 +77,15 @@
                 In this page you will view your academic grades for units that you have completed.
             </p>
         </div>
+
+        <?php
+            if(isset($_SESSION['alert'])){
+                $message = $_SESSION['alert'];
+                echo $message;
+            }
+            unset($_SESSION['alert']);
+        ?>
+
         <div class="grades">
             <table class="table table-striped">
                 <div class="table responsive">
