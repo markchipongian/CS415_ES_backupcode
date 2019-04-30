@@ -80,27 +80,31 @@ session_start();
                 <tbody>
                     <?php
                         //Get Pendgin Grades into tarray provided here!!
-                        $pendingGrades = array( 
-                        array(
-                            "ID" => "S111",
-                            "COURSE_CODE" => "CS111",
-                            "GRADE" => "B+"
-                        ),
-                        array(
-                            "ID" => "S111",
-                            "COURSE_CODE" => "UU114",
-                            "GRADE" => "D"
-                        ),
-                        array(
-                            "ID" => "S112",
-                            "COURSE_CODE" => "CS111",
-                            "GRADE" => "E"
-                        ));//test array 
+                        $student_det = array('username' => $_SESSION["id"]);
+                         $data = json_encode($student_det);
+                         $pendingGrades = json_decode(APICall($data,'grade_rechecklist'), true);
+
+                        // $pendingGrades = array( 
+                        // array(
+                        //     "ID" => "S111",
+                        //     "COURSE_CODE" => "CS111",
+                        //     "GRADE" => "B+"
+                        // ),
+                        // array(
+                        //     "ID" => "S111",
+                        //     "COURSE_CODE" => "UU114",
+                        //     "GRADE" => "D"
+                        // ),
+                        // array(
+                        //     "ID" => "S112",
+                        //     "COURSE_CODE" => "CS111",
+                        //     "GRADE" => "E"
+                        // ));//test array 
 
                         foreach($pendingGrades as $row){
 
                             echo "<tr>
-                                    <td> <div style ='font-weight: bold;'>". $row["ID"] ."</div></td>
+                                    <td> <div style ='font-weight: bold;'>". $row["STUDENT_ID"] ."</div></td>
                                     <td> <div style ='font-weight: bold;'>". $row["COURSE_CODE"] ."</div></td>
                                     <td> <div style ='font-weight: bold;'>". $row["GRADE"] ."</div></td>";
                             echo "<td>";?>

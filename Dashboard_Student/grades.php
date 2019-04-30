@@ -101,6 +101,8 @@
                          $student_det = array('username' => $_SESSION["id"]);
                          $data = json_encode($student_det);
                          $Grades = json_decode(APICall($data,'course_grades'), true);
+                         $size = count($Grades);
+                        //  echo $Grades[0][0];
                             //Get Grades into tarray provided here!!
                             // $Grades = array( 
                             //     array(
@@ -119,23 +121,23 @@
                             // $student = new Student();
                             // $result = $student->student_grades($student_id);
 
-                            foreach($Grades as $row){
+                            for($i = 0; $i < $size ; $i++){
                                 echo "<tr>
-                                          <td> ". $row["COURSE_CODE"] ."</td>
-                                           <td> ". $row["GRADE"] ."</td>";
-                                // if($row["BOOL"]){?>
+                                          <td> ". $Grades[$i][0] ."</td>
+                                           <td> ". $Grades[$i][1] ."</td>";
+                                if($Grades[$i][2]){?>
                                     <form method="POST" action="../Web_Handler/web_handler.php">
-                                    <input type="hidden" name="selected_course" value="<?php echo $row['COURSE_CODE']; ?>"/>
+                                    <input type="hidden" name="selected_course" value="<?php echo $Grades[$i][0]; ?>"/>
 
                                     <?php echo "<td> <button type='submit' name = 'grade_recheck' class='btn btn-success'>Re-Check</button></td>";?>
                                     </form>
                                     <?php
-                            //     }else
-                            //     {
-                            //         echo "<td>No Option</td>";
-                            //     }
-                            //     echo	'</tr>';
-                             }
+                                }else
+                                {
+                                    echo "<td>No Recheck</td>";
+                                }
+                                echo	'</tr>';
+                            }
                         ?>
                     </tbody>
                 </div>    
