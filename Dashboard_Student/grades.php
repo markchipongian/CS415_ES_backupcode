@@ -101,7 +101,14 @@
                          $student_det = array('username' => $_SESSION["id"]);
                          $data = json_encode($student_det);
                          $Grades = json_decode(APICall($data,'course_grades'), true);
-                         $size = count($Grades);
+                         if(!empty($Grades))
+                         {
+                            $size = count($Grades);
+                         }
+                         else
+                         {
+                             $size = 0;
+                         }
                         //  echo $Grades[0][0];
                             //Get Grades into tarray provided here!!
                             // $Grades = array( 

@@ -54,7 +54,7 @@ session_start();
                 </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="logout.php"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+                <li><a href="../logout.php"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
             </ul>
         </div>
     </nav>
@@ -66,6 +66,13 @@ session_start();
             <h2>Pending Grade Rechecks</h2>
             <p>Grades that are requested to be rechecked are posted here</p>
         </div>
+        <?php
+            if(isset($_SESSION['alert'])){
+                $message = $_SESSION['alert'];
+                echo $message;
+            }
+            unset($_SESSION['alert']);
+        ?>
 
         <div class="pendngGrades-table">
             <table class="table table-striped">
@@ -80,7 +87,7 @@ session_start();
                 <tbody>
                     <?php
                         //Get Pendgin Grades into tarray provided here!!
-                        $student_det = array('username' => $_SESSION["id"]);
+                        $student_det = array('username' => 'admin');
                          $data = json_encode($student_det);
                          $pendingGrades = json_decode(APICall($data,'grade_rechecklist'), true);
 
@@ -120,7 +127,7 @@ session_start();
                                     <option value="D">D</option>
                                     <option value="E">E</option>
                                     <option value="Unchanged">Unchanged</option>
-                                    <input type="hidden" name="selected_id" value="<?php echo $row['ID']; ?>"/>
+                                    <input type="hidden" name="selected_id" value="<?php echo $row['STUDENT_ID']; ?>"/>
                                     <input type="hidden" name="selected_course" value="<?php echo $row['COURSE_CODE']; ?>"/>
                                 </select> <input class="button-select" type="submit" value="Submit" name="update_grade">
                             </form>

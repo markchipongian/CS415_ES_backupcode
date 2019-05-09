@@ -49,6 +49,9 @@ $Porgrammes = array(
     <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+
+    <script src="https://cdn.rawgit.com/harvesthq/chosen/gh-pages/chosen.jquery.min.js"></script>
+    <link href="https://cdn.rawgit.com/harvesthq/chosen/gh-pages/chosen.min.css" rel="stylesheet"/>
 </head>
 
 <body>
@@ -75,7 +78,7 @@ $Porgrammes = array(
                 </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="logout.php"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+                <li><a href="../logout.php"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
             </ul>
         </div>
     </nav>
@@ -85,10 +88,12 @@ $Porgrammes = array(
         <p>You can generate and download finance reports here. You can create a report by either Course Code, Faculty or by Date.</p>
     </div>
 
+
+
     <div class="report-box">
-        <!-- <form action="PLACE PATH TO SEND VALUE(SELECTED COURSE CODE FOR RE-CHECK)" method="POST" class="form-inline">-->
-            <label for="course" style="margin-left: 15%;">By Course:</label>
-            <select name="course" class="report-dropdown">
+        <form action="../Web_Handler/test.php" method="POST" >
+            <!-- <label for="course" style="margin-left: 35%;">By Course:</label>
+            <select data-placeholder="Begin typing a name to filter..." multiple class="chosen-select report-dropdown" name="course[]">
                 <option value="" disabled selected>Select Course</option>
                 <?php
                     foreach($Courses as $row){
@@ -97,8 +102,9 @@ $Porgrammes = array(
                 <?php
                     }
                 ?>
-            </select> 
-            <label for="prog" style="margin-left: 5%;">By Program:</label>
+            </select>  -->
+
+            <!-- <label for="prog" style="margin-left: 5%;">By Program:</label>
             <select name="prog" class="report-dropdown">
                 <option value="" disabled selected>Select Program</option>
                     <?php
@@ -108,13 +114,20 @@ $Porgrammes = array(
                     <?php
                         }
                     ?>
-            </select>
-            <br />
-            <br />
-            <button type="button" class="btn btn-primary" style="margin-left: 28%;" onclick="byRegistration();">By Registration Date</button>
-            <button type="button" class="btn btn-primary" style="margin-left: 5%;" onclick="byYearSem();">By Year And Semester</button>
-            <br />
-            <br />
+            </select> -->
+
+            <script>
+                $(".chosen-select").chosen({
+                    no_results_text: "Oops, nothing found!"
+                })
+            </script>
+
+            <!-- <br />
+            <br /> -->
+            <!-- <button type="button" class="btn btn-primary" style="margin-left: 28%;" onclick="byRegistration();">By Registration Date</button>
+            <button type="button" class="btn btn-primary" style="margin-left: 5%;" onclick="byYearSem();">By Year And Semester</button> -->
+            <!-- <br />
+            <br /> -->
                 
             <script>
                 function byRegistration(){
@@ -127,15 +140,17 @@ $Porgrammes = array(
                 }
             </script>            
 
-            <div id="div1" class="by-registration-date">    
-                <label for="report_startDate" class="" >From:</label>
-                <input type="text" name="report_startDate"  id="date_start"/>
+            <div class="by-registration-date">
+                <label style="margin-left: 20%;">By Registration Date:</label>
+                <br />
+                <label for="report_startDate" style="margin-left: 10%;" class="" >From:</label>
+                <input placeholder="Date" type="date" name="report_startDate"  id="date_start" />
 
                 <label for="report_endDate" style="margin-left: 5%;">To:</label>
-                <input type="text" name="report_endDate" id="date_end"/>
+                <input placeholder="Date" type="date" name="report_endDate" id="date_end"/>
             </div>      
 
-            <div id="div2" class="by-year">    
+            <!-- <div id="div2" class="by-year">    
                 <label for="year" >By Year:</label>
                 <select name="course" class="report-dropdown">
                     <option value="" disabled selected>Select Year</option>
@@ -157,27 +172,27 @@ $Porgrammes = array(
                     <option value="2">2</option>
                     <option value="3">Both</option>
                 </select> 
-            </div>      
-                <br />
+            </div>       -->
+                <!-- <br /> -->
                 <br />
                 <input class="btn btn-success" style="margin-left: 45%;" type="submit" value="Submit" name="submit_report">
             </form>
     </div>
 
     <script>
-        $('input[name="report_startDate"]').daterangepicker({
-            singleDatePicker: true,
-            showDropdowns: true,
-            minYear: 1901,
-            maxYear: parseInt(moment().format('YYYY'),10)
-        });
+        // $('input[name="report_startDate"]').daterangepicker({
+        //     singleDatePicker: true,
+        //     showDropdowns: true,
+        //     minYear: 1901,
+        //     maxYear: parseInt(moment().format('YYYY'),10)
+        // });
 
-        $('input[name="report_endDate"]').daterangepicker({
-            singleDatePicker: true,
-            showDropdowns: true,
-            minYear: 1901,
-            maxYear: parseInt(moment().format('YYYY'),10)
-        });
+        // $('input[name="report_endDate"]').daterangepicker({
+        //     singleDatePicker: true,
+        //     showDropdowns: true,
+        //     minYear: 1901,
+        //     maxYear: parseInt(moment().format('YYYY'),10)
+        // });
     </script>
 
 </body>

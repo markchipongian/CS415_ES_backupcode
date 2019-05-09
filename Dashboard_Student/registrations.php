@@ -16,7 +16,7 @@ if(!isset($user_check))
     $student_id = $_SESSION["id"];
     $student_course_completed = Count($student->student_course_completed($student_id));
     $student_course_registered = Count($student->student_course_registered($student_id));
-    $student_course_to_complete = Count($student->student_course_to_complete($student_id));
+
 
 
 ?>
