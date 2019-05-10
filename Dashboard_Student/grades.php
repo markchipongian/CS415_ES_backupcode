@@ -109,24 +109,6 @@
                          {
                              $size = 0;
                          }
-                        //  echo $Grades[0][0];
-                            //Get Grades into tarray provided here!!
-                            // $Grades = array( 
-                            //     array(
-                            //         "COURSE_CODE" => "CS111",
-                            //         "GRADE" => "A+",
-                            //         "BOOL" => true
-                            //     ),
-                            //     array(
-                            //         "COURSE_CODE" => "CS112",
-                            //         "GRADE" => "valore",
-                            //         "BOOL" => false
-                            //     ));//test array 
-
-                            //Old Code
-                            // $student_id = $_SESSION["id"];
-                            // $student = new Student();
-                            // $result = $student->student_grades($student_id);
 
                             for($i = 0; $i < $size ; $i++){
                                 echo "<tr>

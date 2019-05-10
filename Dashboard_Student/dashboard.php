@@ -13,21 +13,12 @@ if(!isset($user_check))
 $student = new Student();
 $student_id = $_SESSION["id"];
 
-// $details = $student->student_details($student_id);
-// $gpa = $student->student_gpa($student_id);
-// foreach($details as $row){
-//     $fname = $row["First_Name"];
-//     $lname = $row["Last_Name"];
-//     $oname = $row["Other_Name"];
-//     $email = $row["Email"];
-//     $mobile = $row["Phone_Number"];
-// }
-
 $fname = $_SESSION["First_Name"];
 $lname =  $_SESSION["Last_Name"];
 $oname = $_SESSION["Other_Name"];
 $email = $_SESSION["Email"];
 $mobile = $_SESSION["Phone_Number"];
+$Prog_Name = $_SESSION["Prog_Name"];
 $gpa ="";
 
 ?>
@@ -97,18 +88,34 @@ $gpa ="";
                 <li class="nav-item active">
                     <a class="nav-link" href="dashboard.php">Home</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="registrations.php">Registrations</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="grades.php">Grades</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="programAudit.php">Program Audit</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="prerequisites.php">Prerequisites</a>
-                </li>
+                <?php if($_SESSION["Prog_Name"] != "HDR"){?>
+                    <li class="nav-item">
+                        <a class="nav-link" href="registrations.php">Registrations</a>
+                    </li>
+                <?php }?>
+                <?php if($_SESSION["Prog_Name"] != "HDR"){?>
+                    <li class="nav-item">
+                        <a class="nav-link" href="grades.php">Grades</a>
+                    </li>
+                <?php }else{ ?>
+                    <li class="nav-item">
+                        <a class="nav-link" href="hdr.php">HDR Progress</a>
+                    </li>
+                <?php } ?>
+                <?php if($_SESSION["Prog_Name"] != "HDR"){?>
+                    <li class="nav-item">
+                        <a class="nav-link" href="programAudit.php">Program Audit</a>
+                    </li>
+                <?php }else{ ?>
+                    <li class="nav-item">
+                        <a class="nav-link" href="hdr_programAudit.php">HDR Audit</a>
+                    </li>
+                <?php } ?>
+                <?php if($_SESSION["Prog_Name"] != "HDR"){?>
+                    <li class="nav-item">
+                        <a class="nav-link" href="prerequisites.php">Prerequisites</a>
+                    </li>
+                <?php }?>
                 <li class="nav-item">
                     <a class="nav-link" href="financeMenu.php">Finance Menu</a>
                 </li>
@@ -158,7 +165,7 @@ $gpa ="";
                     Student ID:<br />
                     Email:<br />
                     Mobile:<br />
-                    GPA:<br />
+                    Programme:<br />
                 </p>
             </div>
 
@@ -175,8 +182,7 @@ $gpa ="";
                     ?><br />
                     <?php echo $student_id; ?><br />
                     <?php echo $email; ?><br />
-                    <?php echo $mobile; ?><br />
-                    <?php echo $gpa; ?><br />
+                    <?php echo $Prog_Name; ?><br />
                 </p>
             </div>
         </div>

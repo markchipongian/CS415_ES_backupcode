@@ -48,24 +48,40 @@ $student_id = $_SESSION["id"];
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid" >
             <ul class="nav navbar-nav">
-                <li class="nav-item ">
-                    <a class="nav-link" href="dashboard.php">Home <span class="sr-only">(current)</span></a>
-                </li>
+            <li class="nav-item">
+                <a class="nav-link" href="dashboard.php">Home</a>
+            </li>
+            <?php if($_SESSION["Prog_Name"] != "HDR"){?>
                 <li class="nav-item">
                     <a class="nav-link" href="registrations.php">Registrations</a>
                 </li>
+            <?php }?>
+            <?php if($_SESSION["Prog_Name"] != "HDR"){?>
                 <li class="nav-item">
                     <a class="nav-link" href="grades.php">Grades</a>
                 </li>
+            <?php }else{ ?>
+                <li class="nav-item">
+                    <a class="nav-link" href="hdr.php">HDR Progress</a>
+                </li>
+            <?php } ?>
+            <?php if($_SESSION["Prog_Name"] != "HDR"){?>
                 <li class="nav-item">
                     <a class="nav-link" href="programAudit.php">Program Audit</a>
                 </li>
+            <?php }else{ ?>
+                <li class="nav-item">
+                    <a class="nav-link" href="hdr_programAudit.php">HDR Audit</a>
+                </li>
+            <?php } ?>
+            <?php if($_SESSION["Prog_Name"] != "HDR"){?>
                 <li class="nav-item">
                     <a class="nav-link" href="prerequisites.php">Prerequisites</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link active" href="financeMenu.php">Finance Menu</a>
-                </li>
+            <?php }?>
+            <li class="nav-item">
+                <a class="nav-link active" href="financeMenu.php">Finance Menu</a>
+            </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="../logout.php"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
