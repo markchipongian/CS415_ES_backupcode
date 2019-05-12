@@ -47,6 +47,8 @@ require_once("../Auth/web_authservice.php");
                 $_SESSION["GENDER"] = $responseData[0]['GENDER'];
                 $_SESSION["Email"] = $responseData[0]['Email'];
                 $_SESSION["Phone_Number"] = $responseData[0]['Phone_Number'];
+                $_SESSION["Prog_Name"] = $responseData[0]['PROG_NAME'];
+                // $_SESSION["Prog_Name"] = "HDR";
                 header("location: ../Dashboard_Student/dashboard.php");
             }else if(!substr_compare($responseData[0]['ID'], "H", 0, 1)){
                 //echo $responseData[0]['GENDER'];

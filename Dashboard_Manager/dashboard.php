@@ -63,6 +63,15 @@ session_start();
         <div class="pendngGrades-title">
             <h1>Welcome Admin!</h1>
             <br/>
+            <h2>Students On Hold</h2>
+            <p>Here you can edit access rights for students on hold</p>
+        </div>
+
+        <div class="student_hold">
+
+        </div>
+
+        <div class="pendngGrades-title">
             <h2>Pending Grade Rechecks</h2>
             <p>Grades that are requested to be rechecked are posted here</p>
         </div>
