@@ -18,9 +18,9 @@
     border-style: solid;
     border-radius: 5px;
     border-color: grey;
-    width: 80%;
-    height: 40vh;
-    overflow: scroll;
+    width: 65%;
+    padding: 2%;
+    height: auto;
     margin: auto;
     background-color: white;
 }

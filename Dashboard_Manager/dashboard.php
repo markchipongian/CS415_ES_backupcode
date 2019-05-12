@@ -1,6 +1,6 @@
 <?php
 // Start the session
-session_start();
+// session_start();
 
 // $user_check=$_SESSION['id'];
 // if(!isset($user_check))
@@ -64,11 +64,42 @@ session_start();
             <h1>Welcome Admin!</h1>
             <br/>
             <h2>Students On Hold</h2>
-            <p>Here you can edit access rights for students on hold</p>
+            <p>Here you can edit access rights for students on hold.</p>
+            <p>Tick the check boxes to enable or disable pages for students</p>
         </div>
 
         <div class="student_hold">
+            <form action="../Web_Handler/web_handler.php" method="POST" class="form-inline">
 
+                <div class="custom-control custom-checkbox custom-control-inline">
+                    <input type="checkbox" class="custom-control-input" id="Registrations" name="page[]" value="registration">
+                    <label class="custom-control-label" for="Registrations">Registrations Page</label>
+                </div>
+
+                <div class="custom-control custom-checkbox custom-control-inline">
+                    <input type="checkbox" class="custom-control-input" id="Grades" name="page[]" value="grade">
+                    <label class="custom-control-label" for="Grades">Grades Page</label>
+                </div>
+
+                <div class="custom-control custom-checkbox custom-control-inline">
+                    <input type="checkbox" class="custom-control-input" id="Audit" name="page[]" value="audit">
+                    <label class="custom-control-label" for="Audit">Programme Audit Page</label>
+                </div>
+
+                <div class="custom-control custom-checkbox custom-control-inline">
+                    <input type="checkbox" class="custom-control-input" id="Prerequisites" name="page[]" value="preq">
+                    <label class="custom-control-label" for="Prerequisites">Prerequisites Page</label>
+                </div>
+
+                <div class="custom-control custom-checkbox custom-control-inline">
+                    <input type="checkbox" class="custom-control-input" id="Finance Menu" name="page[]" value="finance">
+                    <label class="custom-control-label" for="Finance Menu">Finance Menu Page</label>
+                </div>
+                <br />
+                <br />
+                <input style="margin: auto;" class="btn btn-success" type="submit" value="Submit" name="submit_pages">
+
+            </form>    
         </div>
 
         <div class="pendngGrades-title">
@@ -95,27 +126,9 @@ session_start();
                 </thead>
                 <tbody>
                     <?php
-                        //Get Pendgin Grades into tarray provided here!!
                         $student_det = array('username' => 'admin');
                          $data = json_encode($student_det);
                          $pendingGrades = json_decode(APICall($data,'grade_rechecklist'), true);
-
-                        // $pendingGrades = array( 
-                        // array(
-                        //     "ID" => "S111",
-                        //     "COURSE_CODE" => "CS111",
-                        //     "GRADE" => "B+"
-                        // ),
-                        // array(
-                        //     "ID" => "S111",
-                        //     "COURSE_CODE" => "UU114",
-                        //     "GRADE" => "D"
-                        // ),
-                        // array(
-                        //     "ID" => "S112",
-                        //     "COURSE_CODE" => "CS111",
-                        //     "GRADE" => "E"
-                        // ));//test array 
 
                         foreach($pendingGrades as $row){
 
@@ -140,7 +153,8 @@ session_start();
                                     <input type="hidden" name="selected_course" value="<?php echo $row['COURSE_CODE']; ?>"/>
                                 </select> <input class="button-select" type="submit" value="Submit" name="update_grade">
                             </form>
-                            <?php echo "</td><td>";
+                            <?php 
+                            echo "</td><td>";
                             echo	'</td> </tr>';
                         }
 

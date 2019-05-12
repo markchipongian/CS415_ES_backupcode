@@ -419,6 +419,14 @@ require_once("../Auth/web_authservice.php");
             }
         }
 
+    }if(isset($_POST['submit_pages']))
+    {
+        echo "Hello";
+        $array = array();
+    
+        $array = $_POST['page'];
+        print_r($array);
+       
     }
 
 
