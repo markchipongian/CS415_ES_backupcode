@@ -1,12 +1,12 @@
 <?php
 // Start the session
-// session_start();
+session_start();
 
-// $user_check=$_SESSION['id'];
-// if(!isset($user_check))
-// {
-//     header('Location:../index.php'); // Redirecting To Home Page
-// }
+$user_check=$_SESSION['id'];
+if(!isset($user_check))
+{
+    header('Location:../index.php'); // Redirecting To Home Page
+}
 
 ?>
 <?php require_once("../Auth/web_authservice.php"); ?>
@@ -59,6 +59,16 @@
         </div>
     </nav>
 
+    
+    <?php
+            if(isset($_SESSION['alert'])){
+                $message = $_SESSION['alert'];
+                echo $message;
+                
+            unset($_SESSION['alert']);
+            }
+        ?>
+
     <div class="Container">
         <div class="pendngGrades-title">
             <h1>Welcome Admin!</h1>
@@ -72,27 +82,32 @@
             <form action="../Web_Handler/web_handler.php" method="POST" class="form-inline">
 
                 <div class="custom-control custom-checkbox custom-control-inline">
-                    <input type="checkbox" class="custom-control-input" id="Registrations" name="page[]" value="registration">
+                    <input type="checkbox" class="custom-control-input" id="login" name="page[]" value="LOGIN">
+                    <label class="custom-control-label" for="login">Login Page</label>
+                </div>
+
+                <div class="custom-control custom-checkbox custom-control-inline">
+                    <input type="checkbox" class="custom-control-input" id="Registrations" name="page[]" value="REGISTRATION">
                     <label class="custom-control-label" for="Registrations">Registrations Page</label>
                 </div>
 
                 <div class="custom-control custom-checkbox custom-control-inline">
-                    <input type="checkbox" class="custom-control-input" id="Grades" name="page[]" value="grade">
+                    <input type="checkbox" class="custom-control-input" id="Grades" name="page[]" value="GRADE">
                     <label class="custom-control-label" for="Grades">Grades Page</label>
                 </div>
 
                 <div class="custom-control custom-checkbox custom-control-inline">
-                    <input type="checkbox" class="custom-control-input" id="Audit" name="page[]" value="audit">
+                    <input type="checkbox" class="custom-control-input" id="Audit" name="page[]" value="AUDIT">
                     <label class="custom-control-label" for="Audit">Programme Audit Page</label>
                 </div>
 
                 <div class="custom-control custom-checkbox custom-control-inline">
-                    <input type="checkbox" class="custom-control-input" id="Prerequisites" name="page[]" value="preq">
+                    <input type="checkbox" class="custom-control-input" id="Prerequisites" name="page[]" value="PREQ">
                     <label class="custom-control-label" for="Prerequisites">Prerequisites Page</label>
                 </div>
 
                 <div class="custom-control custom-checkbox custom-control-inline">
-                    <input type="checkbox" class="custom-control-input" id="Finance Menu" name="page[]" value="finance">
+                    <input type="checkbox" class="custom-control-input" id="Finance Menu" name="page[]" value="FINANCE">
                     <label class="custom-control-label" for="Finance Menu">Finance Menu Page</label>
                 </div>
                 <br />
@@ -106,13 +121,6 @@
             <h2>Pending Grade Rechecks</h2>
             <p>Grades that are requested to be rechecked are posted here</p>
         </div>
-        <?php
-            if(isset($_SESSION['alert'])){
-                $message = $_SESSION['alert'];
-                echo $message;
-            }
-            unset($_SESSION['alert']);
-        ?>
 
         <div class="pendngGrades-table">
             <table class="table table-striped">
@@ -129,7 +137,7 @@
                         $student_det = array('username' => 'admin');
                          $data = json_encode($student_det);
                          $pendingGrades = json_decode(APICall($data,'grade_rechecklist'), true);
-
+                        // echo $pendingGrades;
                         foreach($pendingGrades as $row){
 
                             echo "<tr>

@@ -21,8 +21,25 @@
         $output = curl_exec($ch);
         // close curl resource to free up system resources
         curl_close($ch); 
-         
-        return $output;
+        $BlockedLogin = "BlockedLogin";
+        $Blocked = "Blocked";
+
+        // echo $output;Blocked Login
+        if(json_decode($output) == $BlockedLogin)
+        {
+            $alertmsgg = "<div class='alert alert-danger'> <a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>Account is on Hold. You Are Blocked From Loging In</div>";
+            $_SESSION['alert'] = $alertmsgg;
+            header("location: ../index.php");
+        }
+        elseif(json_decode($output) == $Blocked){
+            $alertmsgg = "<div class='alert alert-danger'> <a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>Account is on Hold. Page Blocked</div>";
+            $_SESSION['alert'] = $alertmsgg;
+            header("location: ../Dashboard_Student/dashboard.php");
+        }
+        else
+        {
+            return $output;
+        }
     }
    
 

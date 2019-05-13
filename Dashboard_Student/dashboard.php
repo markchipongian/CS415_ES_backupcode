@@ -127,6 +127,13 @@ $gpa ="";
     </nav>
     
     <div class="Container">
+    <?php
+            if(isset($_SESSION['alert'])){
+                $message = $_SESSION['alert'];
+                echo $message;
+                unset($_SESSION['alert']);
+            }
+        ?>
 
         <div class="page-title">
             <h1>Welcome To Your Dashboard</h1>

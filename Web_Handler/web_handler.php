@@ -22,17 +22,11 @@ require_once("../Auth/web_authservice.php");
         $data = json_encode($login_cred);
         $result = APICall($data,$type); //result is [{"ID":"S111","GENDER":"Male","First_Name":"Patrick","Other_Name":null,"Last_Name":"Chip","S_Password":"$2y$10$J0kI0qQrvARyUlBD7T37GOOKCmiWzmpxvA0Z30CCCkDBCacss/OoS","Email":"Chip","Phone_Number":"+679 9790321","Student_Hold":"0"}]
         $responseData = json_decode($result,true);
+        // echo $result;
         if ($result == 'null')
         {
             // echo $result;
             $alertmsgg = "<div class='alert alert-danger'> <a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>Incorrect Login Credentials</div>";
-            $_SESSION['alert'] = $alertmsgg;
-            header("location: ../index.php");
-        }
-        else if($responseData == 'hold')
-        {
-            // echo $responseData;
-            $alertmsgg = "<div class='alert alert-danger'> <a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>Account is currently on Hold</div>";
             $_SESSION['alert'] = $alertmsgg;
             header("location: ../index.php");
         }
@@ -60,7 +54,8 @@ require_once("../Auth/web_authservice.php");
                 $_SESSION["Email"] = $responseData[0]['Email'];
                 $_SESSION["Phone_Number"] = $responseData[0]['Phone_Number'];
                 header("location: ../Dashboard_Manager/dashboard.php");
-            }else{
+            }
+            else{
                 $alertmsgg = "<div class='alert alert-danger'> <a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>Account does not Exist</div>";
                 $_SESSION['alert'] = $alertmsgg;
                 header("location: ../index.php");
@@ -421,11 +416,27 @@ require_once("../Auth/web_authservice.php");
 
     }if(isset($_POST['submit_pages']))
     {
-        echo "Hello";
         $array = array();
-    
+        $type = 'block_pages';
+
         $array = $_POST['page'];
-        print_r($array);
+
+        $cred = array('pages' => $array);
+        $data = json_encode($cred);
+        // echo $data;
+        $result = APICall($data,$type); 
+        $response = json_decode($result, true);
+        echo $response;
+        if($response){
+            $alertmsgg = "<div class='alert alert-success'> <a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>Block Placed</div>";
+            $_SESSION['alert'] = $alertmsgg;
+            header("location: ../Dashboard_Manager/dashboard.php");
+        }
+        else{
+        $alertmsgg = "<div class='alert alert-danger'> <a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>Block Not Placed</div>";
+        $_SESSION['alert'] = $alertmsgg;
+        header("location: ../Dashboard_Manager/dashboard.php");
+    }
        
     }
 

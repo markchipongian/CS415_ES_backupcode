@@ -32,8 +32,9 @@
                 if(isset($_SESSION['alert'])){
                     $message = $_SESSION['alert'];
                     echo $message;
-                }
+                    
                 unset($_SESSION['alert']);
+                }
             ?>
         </div>
         <div class="Login">
