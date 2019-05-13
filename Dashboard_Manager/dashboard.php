@@ -1,12 +1,12 @@
 <?php
 // Start the session
-session_start();
+// session_start();
 
-$user_check=$_SESSION['id'];
-if(!isset($user_check))
-{
-    header('Location:../index.php'); // Redirecting To Home Page
-}
+// $user_check=$_SESSION['id'];
+// if(!isset($user_check))
+// {
+//     header('Location:../index.php'); // Redirecting To Home Page
+// }
 
 ?>
 <?php require_once("../Auth/web_authservice.php"); ?>
@@ -110,9 +110,8 @@ if(!isset($user_check))
                     <input type="checkbox" class="custom-control-input" id="Finance Menu" name="page[]" value="FINANCE">
                     <label class="custom-control-label" for="Finance Menu">Finance Menu Page</label>
                 </div>
-                <br />
-                <br />
-                <input style="margin: auto;" class="btn btn-success" type="submit" value="Submit" name="submit_pages">
+                <input style="margin: auto;" class="btn btn-success" type="submit" value="Block Pages" name="submit_pages">
+                <input style="margin: auto;" class="btn btn-success" type="submit" value="Unblock Pages" name="submit_pages">
 
             </form>    
         </div>
@@ -134,18 +133,18 @@ if(!isset($user_check))
                 </thead>
                 <tbody>
                     <?php
-                        $student_det = array('username' => 'admin');
-                         $data = json_encode($student_det);
-                         $pendingGrades = json_decode(APICall($data,'grade_rechecklist'), true);
-                        // echo $pendingGrades;
-                        foreach($pendingGrades as $row){
+                        // $student_det = array('username' => 'admin');
+                        //  $data = json_encode($student_det);
+                        //  $pendingGrades = json_decode(APICall($data,'grade_rechecklist'), true);
+                        // // echo $pendingGrades;
+                        // foreach($pendingGrades as $row){
 
-                            echo "<tr>
-                                    <td> <div style ='font-weight: bold;'>". $row["STUDENT_ID"] ."</div></td>
-                                    <td> <div style ='font-weight: bold;'>". $row["COURSE_CODE"] ."</div></td>
-                                    <td> <div style ='font-weight: bold;'>". $row["GRADE"] ."</div></td>";
-                            echo "<td>";?>
-                             <form action="../Web_Handler/web_handler.php" method="POST" class="form-inline">
+                        //     echo "<tr>
+                        //             <td> <div style ='font-weight: bold;'>". $row["STUDENT_ID"] ."</div></td>
+                        //             <td> <div style ='font-weight: bold;'>". $row["COURSE_CODE"] ."</div></td>
+                        //             <td> <div style ='font-weight: bold;'>". $row["GRADE"] ."</div></td>";
+                        //     echo "<td>";?>
+                             <!-- <form action="../Web_Handler/web_handler.php" method="POST" class="form-inline">
                                 <select name="grade" class="select-menu">
                                     <option value="Unchanged">Select Grade</option>
                                     <option value="A+">A+</option>
@@ -160,11 +159,11 @@ if(!isset($user_check))
                                     <input type="hidden" name="selected_id" value="<?php echo $row['STUDENT_ID']; ?>"/>
                                     <input type="hidden" name="selected_course" value="<?php echo $row['COURSE_CODE']; ?>"/>
                                 </select> <input class="button-select" type="submit" value="Submit" name="update_grade">
-                            </form>
+                            </form> -->
                             <?php 
-                            echo "</td><td>";
-                            echo	'</td> </tr>';
-                        }
+                        //     echo "</td><td>";
+                        //     echo	'</td> </tr>';
+                        // }
 
                     ?>
                 </tbody>
